@@ -1,4 +1,6 @@
-namespace final_project;
+using life_assistant.spending_tracker;
+
+namespace life_assistant;
 
 static class Program
 {
@@ -11,6 +13,7 @@ static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
+        // Application.Run(new Form1());
+        Application.Run(new life_assistant.spending_tracker.MainForm());
     }    
 }

@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
-using final_project.Schemas;
+using WinForms_Expense_Manager.Schemas;
 
-namespace final_project.Classes
+namespace WinForms_Expense_Manager.Classes
 {
     /// <summary>
     /// Provides methods and properties to manipulate and access Entries,

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace final_project.Classes
+namespace WinForms_Expense_Manager.Classes
 {
     /// <summary>
     /// Represents a single income / expense entry.

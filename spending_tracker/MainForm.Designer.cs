@@ -1,4 +1,4 @@
-﻿namespace WinForms_Expense_Manager
+﻿namespace life_assistant.spending_tracker
 {
     partial class MainForm
     {
@@ -39,6 +39,7 @@
             this.exportMoreMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsCsvMoreMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsMoreMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.filterFromDateTime = new System.Windows.Forms.DateTimePicker();
             this.filterToDateTime = new System.Windows.Forms.DateTimePicker();
             this.labelFilterFrom = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSummary = new System.Windows.Forms.Label();
             this.labelVisibleSummary = new System.Windows.Forms.Label();
-            this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.contextMenuStripEntry.SuspendLayout();
             this.SuspendLayout();
@@ -76,9 +76,9 @@
             this.categoriesMenu,
             this.moreMenu,
             this.aboutMenu});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Location = new System.Drawing.Point(3, 64);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(761, 24);
+            this.menuStrip.Size = new System.Drawing.Size(803, 24);
             this.menuStrip.TabIndex = 0;
             // 
             // fileMenu
@@ -87,20 +87,20 @@
             this.saveAsFileMenuItem,
             this.openMenuItem});
             this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(37, 20);
+            this.fileMenu.Size = new System.Drawing.Size(38, 20);
             this.fileMenu.Text = "File";
             // 
             // saveAsFileMenuItem
             // 
             this.saveAsFileMenuItem.Name = "saveAsFileMenuItem";
-            this.saveAsFileMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveAsFileMenuItem.Size = new System.Drawing.Size(116, 22);
             this.saveAsFileMenuItem.Text = "Save as";
             this.saveAsFileMenuItem.Click += new System.EventHandler(this.saveAsFileMenuItem_Click);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(116, 22);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
@@ -109,13 +109,13 @@
             this.categoriesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageCategoriesMenuItem});
             this.categoriesMenu.Name = "categoriesMenu";
-            this.categoriesMenu.Size = new System.Drawing.Size(75, 20);
+            this.categoriesMenu.Size = new System.Drawing.Size(80, 20);
             this.categoriesMenu.Text = "Categories";
             // 
             // manageCategoriesMenuItem
             // 
             this.manageCategoriesMenuItem.Name = "manageCategoriesMenuItem";
-            this.manageCategoriesMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.manageCategoriesMenuItem.Size = new System.Drawing.Size(122, 22);
             this.manageCategoriesMenuItem.Text = "Manage";
             this.manageCategoriesMenuItem.Click += new System.EventHandler(this.manageCategoriesMenuItem_Click);
             // 
@@ -125,7 +125,7 @@
             this.exportMoreMenuItem,
             this.optionsMoreMenuItem});
             this.moreMenu.Name = "moreMenu";
-            this.moreMenu.Size = new System.Drawing.Size(47, 20);
+            this.moreMenu.Size = new System.Drawing.Size(50, 20);
             this.moreMenu.Text = "More";
             // 
             // exportMoreMenuItem
@@ -133,7 +133,7 @@
             this.exportMoreMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportAsCsvMoreMenuItem});
             this.exportMoreMenuItem.Name = "exportMoreMenuItem";
-            this.exportMoreMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportMoreMenuItem.Size = new System.Drawing.Size(119, 22);
             this.exportMoreMenuItem.Text = "Export";
             // 
             // exportAsCsvMoreMenuItem
@@ -146,14 +146,21 @@
             // optionsMoreMenuItem
             // 
             this.optionsMoreMenuItem.Name = "optionsMoreMenuItem";
-            this.optionsMoreMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsMoreMenuItem.Size = new System.Drawing.Size(119, 22);
             this.optionsMoreMenuItem.Text = "Options";
             this.optionsMoreMenuItem.Click += new System.EventHandler(this.optionsMoreMenuItem_Click);
+            // 
+            // aboutMenu
+            // 
+            this.aboutMenu.Name = "aboutMenu";
+            this.aboutMenu.Size = new System.Drawing.Size(54, 20);
+            this.aboutMenu.Text = "About";
+            this.aboutMenu.Click += new System.EventHandler(this.aboutMenu_Click);
             // 
             // filterFromDateTime
             // 
             this.filterFromDateTime.Enabled = false;
-            this.filterFromDateTime.Location = new System.Drawing.Point(529, 100);
+            this.filterFromDateTime.Location = new System.Drawing.Point(526, 169);
             this.filterFromDateTime.Name = "filterFromDateTime";
             this.filterFromDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterFromDateTime.TabIndex = 0;
@@ -163,7 +170,7 @@
             // filterToDateTime
             // 
             this.filterToDateTime.Enabled = false;
-            this.filterToDateTime.Location = new System.Drawing.Point(529, 144);
+            this.filterToDateTime.Location = new System.Drawing.Point(526, 213);
             this.filterToDateTime.Name = "filterToDateTime";
             this.filterToDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterToDateTime.TabIndex = 2;
@@ -174,9 +181,9 @@
             // 
             this.labelFilterFrom.AutoSize = true;
             this.labelFilterFrom.Enabled = false;
-            this.labelFilterFrom.Location = new System.Drawing.Point(540, 82);
+            this.labelFilterFrom.Location = new System.Drawing.Point(537, 151);
             this.labelFilterFrom.Name = "labelFilterFrom";
-            this.labelFilterFrom.Size = new System.Drawing.Size(65, 15);
+            this.labelFilterFrom.Size = new System.Drawing.Size(67, 15);
             this.labelFilterFrom.TabIndex = 3;
             this.labelFilterFrom.Text = "Filter from:";
             // 
@@ -184,9 +191,9 @@
             // 
             this.labelFilterTo.AutoSize = true;
             this.labelFilterTo.Enabled = false;
-            this.labelFilterTo.Location = new System.Drawing.Point(540, 126);
+            this.labelFilterTo.Location = new System.Drawing.Point(537, 195);
             this.labelFilterTo.Name = "labelFilterTo";
-            this.labelFilterTo.Size = new System.Drawing.Size(50, 15);
+            this.labelFilterTo.Size = new System.Drawing.Size(52, 15);
             this.labelFilterTo.TabIndex = 4;
             this.labelFilterTo.Text = "Filter to:";
             // 
@@ -194,7 +201,7 @@
             // 
             this.labelFilter.AutoSize = true;
             this.labelFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFilter.Location = new System.Drawing.Point(526, 27);
+            this.labelFilter.Location = new System.Drawing.Point(526, 96);
             this.labelFilter.Name = "labelFilter";
             this.labelFilter.Size = new System.Drawing.Size(52, 21);
             this.labelFilter.TabIndex = 5;
@@ -203,9 +210,9 @@
             // checkBoxFilterDateTime
             // 
             this.checkBoxFilterDateTime.AutoSize = true;
-            this.checkBoxFilterDateTime.Location = new System.Drawing.Point(529, 60);
+            this.checkBoxFilterDateTime.Location = new System.Drawing.Point(526, 129);
             this.checkBoxFilterDateTime.Name = "checkBoxFilterDateTime";
-            this.checkBoxFilterDateTime.Size = new System.Drawing.Size(114, 19);
+            this.checkBoxFilterDateTime.Size = new System.Drawing.Size(121, 19);
             this.checkBoxFilterDateTime.TabIndex = 6;
             this.checkBoxFilterDateTime.Text = "Filter date range.";
             this.checkBoxFilterDateTime.UseVisualStyleBackColor = true;
@@ -215,7 +222,7 @@
             // 
             this.radioButtonAll.AutoSize = true;
             this.radioButtonAll.Checked = true;
-            this.radioButtonAll.Location = new System.Drawing.Point(533, 200);
+            this.radioButtonAll.Location = new System.Drawing.Point(530, 269);
             this.radioButtonAll.Name = "radioButtonAll";
             this.radioButtonAll.Size = new System.Drawing.Size(39, 19);
             this.radioButtonAll.TabIndex = 7;
@@ -227,9 +234,9 @@
             // radioButtonIncome
             // 
             this.radioButtonIncome.AutoSize = true;
-            this.radioButtonIncome.Location = new System.Drawing.Point(578, 200);
+            this.radioButtonIncome.Location = new System.Drawing.Point(575, 269);
             this.radioButtonIncome.Name = "radioButtonIncome";
-            this.radioButtonIncome.Size = new System.Drawing.Size(65, 19);
+            this.radioButtonIncome.Size = new System.Drawing.Size(67, 19);
             this.radioButtonIncome.TabIndex = 8;
             this.radioButtonIncome.Text = "Income";
             this.radioButtonIncome.UseVisualStyleBackColor = true;
@@ -238,9 +245,9 @@
             // radioButtonExpenses
             // 
             this.radioButtonExpenses.AutoSize = true;
-            this.radioButtonExpenses.Location = new System.Drawing.Point(649, 200);
+            this.radioButtonExpenses.Location = new System.Drawing.Point(646, 269);
             this.radioButtonExpenses.Name = "radioButtonExpenses";
-            this.radioButtonExpenses.Size = new System.Drawing.Size(73, 19);
+            this.radioButtonExpenses.Size = new System.Drawing.Size(77, 19);
             this.radioButtonExpenses.TabIndex = 9;
             this.radioButtonExpenses.Text = "Expenses";
             this.radioButtonExpenses.UseVisualStyleBackColor = true;
@@ -249,25 +256,25 @@
             // labelFilterByType
             // 
             this.labelFilterByType.AutoSize = true;
-            this.labelFilterByType.Location = new System.Drawing.Point(529, 182);
+            this.labelFilterByType.Location = new System.Drawing.Point(526, 251);
             this.labelFilterByType.Name = "labelFilterByType";
-            this.labelFilterByType.Size = new System.Drawing.Size(78, 15);
+            this.labelFilterByType.Size = new System.Drawing.Size(82, 15);
             this.labelFilterByType.TabIndex = 10;
             this.labelFilterByType.Text = "Filter by type:";
             // 
             // labelFilterByCategory
             // 
             this.labelFilterByCategory.AutoSize = true;
-            this.labelFilterByCategory.Location = new System.Drawing.Point(531, 232);
+            this.labelFilterByCategory.Location = new System.Drawing.Point(528, 301);
             this.labelFilterByCategory.Name = "labelFilterByCategory";
-            this.labelFilterByCategory.Size = new System.Drawing.Size(101, 15);
+            this.labelFilterByCategory.Size = new System.Drawing.Size(107, 15);
             this.labelFilterByCategory.TabIndex = 11;
             this.labelFilterByCategory.Text = "Filter by category:";
             // 
             // comboBoxCategories
             // 
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(531, 250);
+            this.comboBoxCategories.Location = new System.Drawing.Point(528, 319);
             this.comboBoxCategories.Name = "comboBoxCategories";
             this.comboBoxCategories.Size = new System.Drawing.Size(217, 23);
             this.comboBoxCategories.TabIndex = 12;
@@ -277,7 +284,7 @@
             // 
             this.labelActions.AutoSize = true;
             this.labelActions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelActions.Location = new System.Drawing.Point(526, 335);
+            this.labelActions.Location = new System.Drawing.Point(523, 404);
             this.labelActions.Name = "labelActions";
             this.labelActions.Size = new System.Drawing.Size(61, 21);
             this.labelActions.TabIndex = 13;
@@ -285,7 +292,7 @@
             // 
             // buttonAddNewEntry
             // 
-            this.buttonAddNewEntry.Location = new System.Drawing.Point(532, 359);
+            this.buttonAddNewEntry.Location = new System.Drawing.Point(529, 428);
             this.buttonAddNewEntry.Name = "buttonAddNewEntry";
             this.buttonAddNewEntry.Size = new System.Drawing.Size(217, 57);
             this.buttonAddNewEntry.TabIndex = 14;
@@ -306,7 +313,7 @@
             this.listViewEntries.FullRowSelect = true;
             this.listViewEntries.GridLines = true;
             this.listViewEntries.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewEntries.Location = new System.Drawing.Point(12, 27);
+            this.listViewEntries.Location = new System.Drawing.Point(9, 96);
             this.listViewEntries.MultiSelect = false;
             this.listViewEntries.Name = "listViewEntries";
             this.listViewEntries.Size = new System.Drawing.Size(508, 389);
@@ -341,61 +348,54 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStripEntry.Name = "contextMenuStripEntry";
-            this.contextMenuStripEntry.Size = new System.Drawing.Size(166, 70);
+            this.contextMenuStripEntry.Size = new System.Drawing.Size(172, 70);
             this.contextMenuStripEntry.Text = "Entry Context Menu";
             this.contextMenuStripEntry.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripEntry_Opening);
             // 
             // showDescriptionMenuItem
             // 
             this.showDescriptionMenuItem.Name = "showDescriptionMenuItem";
-            this.showDescriptionMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.showDescriptionMenuItem.Size = new System.Drawing.Size(171, 22);
             this.showDescriptionMenuItem.Text = "Show description";
             this.showDescriptionMenuItem.Click += new System.EventHandler(this.showDescriptionMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // labelSummary
             // 
             this.labelSummary.AutoSize = true;
-            this.labelSummary.Location = new System.Drawing.Point(12, 419);
+            this.labelSummary.Location = new System.Drawing.Point(9, 488);
             this.labelSummary.Name = "labelSummary";
-            this.labelSummary.Size = new System.Drawing.Size(61, 15);
+            this.labelSummary.Size = new System.Drawing.Size(63, 15);
             this.labelSummary.TabIndex = 16;
             this.labelSummary.Text = "Summary:";
             // 
             // labelVisibleSummary
             // 
             this.labelVisibleSummary.AutoSize = true;
-            this.labelVisibleSummary.Location = new System.Drawing.Point(12, 436);
+            this.labelVisibleSummary.Location = new System.Drawing.Point(9, 505);
             this.labelVisibleSummary.Name = "labelVisibleSummary";
-            this.labelVisibleSummary.Size = new System.Drawing.Size(102, 15);
+            this.labelVisibleSummary.Size = new System.Drawing.Size(106, 15);
             this.labelVisibleSummary.TabIndex = 17;
             this.labelVisibleSummary.Text = "Filtered summary:";
-            // 
-            // aboutMenu
-            // 
-            this.aboutMenu.Name = "aboutMenu";
-            this.aboutMenu.Size = new System.Drawing.Size(52, 20);
-            this.aboutMenu.Text = "About";
-            this.aboutMenu.Click += new System.EventHandler(this.aboutMenu_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 457);
+            this.ClientSize = new System.Drawing.Size(809, 574);
             this.Controls.Add(this.labelVisibleSummary);
             this.Controls.Add(this.labelSummary);
             this.Controls.Add(this.listViewEntries);
@@ -419,7 +419,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Expense manager";
+            this.Text = "Spending Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
