@@ -1,4 +1,4 @@
-﻿namespace final_project;
+﻿namespace life_assistant;
 
 partial class Form1
 {
