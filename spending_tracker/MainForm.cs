@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
-using WinForms_Expense_Manager.Classes;
-using WinForms_Expense_Manager.Forms;
+using spending_tracker.Classes;
+using spending_tracker.Forms;
 using MaterialSkin.Controls;
 
 namespace life_assistant.spending_tracker;

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using WinForms_Expense_Manager.Classes;
+using spending_tracker.Classes;
 
-namespace WinForms_Expense_Manager.Schemas
+namespace spending_tracker.Schemas
 {
     /// <summary>
     /// Defines the ExpenseManager data schema.
