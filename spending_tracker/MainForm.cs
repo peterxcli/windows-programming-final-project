@@ -391,7 +391,7 @@ public partial class MainForm : MaterialForm
             {
                 ProcessStartInfo processStartInfo = new()
                 {
-                    FileName = "https://github.com/dariomrk/WinForms-Expense-Manager",
+                    FileName = "https://github.com/peterxcli/windows-programming-final-project",
                     UseShellExecute = true,
                 };
                 Process.Start(processStartInfo);
@@ -400,7 +400,7 @@ public partial class MainForm : MaterialForm
             {
                 MessageBox.Show("Cannot open a browser instance.\n" +
                     "You can open the link manually:\n" +
-                    "https://github.com/dariomrk/WinForms-Expense-Manager",
+                    "https://github.com/peterxcli/windows-programming-final-project",
             "Warning",
             MessageBoxButtons.OK,
             MessageBoxIcon.Warning);
