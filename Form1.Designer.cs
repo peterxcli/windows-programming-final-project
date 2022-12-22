@@ -37,22 +37,22 @@ partial class Form1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(24, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(513, 122);
+            this.label1.Size = new System.Drawing.Size(385, 91);
             this.label1.TabIndex = 0;
             this.label1.Text = "To Do List";
             // 
             // CntBar
             // 
             this.CntBar.AutoSize = true;
-            this.CntBar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CntBar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CntBar.Location = new System.Drawing.Point(640, 18);
             this.CntBar.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.CntBar.Name = "CntBar";
-            this.CntBar.Size = new System.Drawing.Size(109, 122);
+            this.CntBar.Size = new System.Drawing.Size(82, 91);
             this.CntBar.TabIndex = 0;
             this.CntBar.Text = "0";
             // 

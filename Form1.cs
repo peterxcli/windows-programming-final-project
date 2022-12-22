@@ -2,12 +2,12 @@ namespace life_assistant;
 
 public partial class Form1 : Form
 {
-    RadioButton[] things=new RadioButton[10];
+    RadioButton[] things=new RadioButton[100];
     int ThingsCnt=0;
     public Form1()
     {
         InitializeComponent();
-        for(int i = 0; i < 9; i++)
+        for(int i = 0; i < 100; i++)
         {
             things[i]=new RadioButton();
             things[i].SetBounds(100,150+80*i,10000, 70);
