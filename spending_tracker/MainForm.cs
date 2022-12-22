@@ -18,7 +18,7 @@ public partial class MainForm : MaterialForm
     #endregion
 
     #region Constructor
-
+    //private MaterialSkin.Controls.MaterialDateTimePicker datePicker;
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     public MainForm()
     {
@@ -27,13 +27,15 @@ public partial class MainForm : MaterialForm
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-        materialSkinManager.ColorScheme = new ColorScheme(
-                   Primary.Cyan700,
-                   Primary.Cyan900,
-                   Primary.Cyan500,
-                   Accent.DeepOrange200,
-                   TextShade.WHITE);
+        // materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+        // materialSkinManager.ColorScheme = new ColorScheme(
+        //            Primary.Cyan700,
+        //            Primary.Cyan900,
+        //            Primary.Cyan500,
+        //            Accent.DeepOrange200,
+        //            TextShade.WHITE);
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
 
         _filters = new()
             {
@@ -54,7 +56,7 @@ public partial class MainForm : MaterialForm
             {
                 income += e.Value;
             }
-            if (e.IsExpense)
+            if (!e.IsIncome)
             {
                 expense += e.Value;
             }
@@ -95,7 +97,7 @@ public partial class MainForm : MaterialForm
         if (radioButtonAll.Checked)
             return true;
         if (radioButtonExpenses.Checked)
-            return e.IsExpense;
+            return !e.IsIncome;
         if (radioButtonIncome.Checked)
             return e.IsIncome;
         return false;
@@ -141,6 +143,7 @@ public partial class MainForm : MaterialForm
             _manager.TryGetCategoryName(entry.CategoryId, out string categoryName);
             item.SubItems.Add(categoryName);
             item.Tag = entry.Id;
+            item.SubItems.Add((entry.IsIncome ? "income" : "expense"));
             listViewEntries.Items.Add(item);
         }
     }
@@ -158,7 +161,7 @@ public partial class MainForm : MaterialForm
         labelSummary.Text = $"Summary: " +
             $"\u25bc {_total.Expense}{_manager.CurrencySign}   " +
             $"\u25b2 {_total.Income}{_manager.CurrencySign}   " +
-            $"\u03a3 {_total.Income + _total.Expense}{_manager.CurrencySign}";
+            $"\u03a3 {_total.Income - _total.Expense}{_manager.CurrencySign}";
     }
 
     private void UpdateVisibleSummary()
@@ -166,7 +169,7 @@ public partial class MainForm : MaterialForm
         labelVisibleSummary.Text = $"Filtered summary: " +
             $"\u25bc {_visibleTotal.Expense}{_manager.CurrencySign}   " +
             $"\u25b2{_visibleTotal.Income}{_manager.CurrencySign}   " +
-            $"\u03a3 {_visibleTotal.Income + _visibleTotal.Expense}{_manager.CurrencySign}";
+            $"\u03a3 {_visibleTotal.Income - _visibleTotal.Expense}{_manager.CurrencySign}";
     }
 
     private void UpdateListViewAndSummary()

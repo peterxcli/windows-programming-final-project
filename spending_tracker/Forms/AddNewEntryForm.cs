@@ -1,12 +1,29 @@
-﻿namespace spending_tracker.Forms;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
+using spending_tracker.Classes;
 
-public partial class AddNewEntryForm : Form
+namespace spending_tracker.Forms;
+
+public partial class AddNewEntryForm : MaterialForm
 {
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     Classes.ExpenseManager _manager;
     public AddNewEntryForm(Classes.ExpenseManager manager)
     {
         _manager = manager;
         InitializeComponent();
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        // materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+        // materialSkinManager.ColorScheme = new ColorScheme(
+        //            Primary.Cyan700,
+        //            Primary.Cyan900,
+        //            Primary.Cyan500,
+        //            Accent.DeepOrange200,
+        //            TextShade.WHITE);
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
     }
 
     private void AddNewEntryForm_Load(object sender, EventArgs e)
@@ -57,6 +74,7 @@ public partial class AddNewEntryForm : Form
         _manager.TryGetCategoryId(comboBoxCategories.SelectedItem.ToString(), out categoryId);
         Classes.Entry entry = new(title, description, parsedValue);
         entry.CategoryId = categoryId;
+        entry.IsIncome = radioButtonIncome.Checked;
         _manager.AddEntry(entry);
         Close();
     }

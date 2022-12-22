@@ -31,7 +31,7 @@ partial class ManageCategoriesForm
     {
         this.components = new System.ComponentModel.Container();
         this.listBoxCategories = new System.Windows.Forms.ListBox();
-        this.contextMenuStripCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
+        this.contextMenuStripCategory = new MaterialSkin.Controls.MaterialContextMenuStrip();
         this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         this.buttonAddEditCategory = new System.Windows.Forms.Button();

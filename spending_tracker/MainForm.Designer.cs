@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,19 +41,18 @@
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.filterFromDateTime = new System.Windows.Forms.DateTimePicker();
             this.filterToDateTime = new System.Windows.Forms.DateTimePicker();
-            this.labelFilter = new System.Windows.Forms.Label();
-            this.checkBoxFilterDateTime = new System.Windows.Forms.CheckBox();
-            this.radioButtonAll = new System.Windows.Forms.RadioButton();
-            this.radioButtonIncome = new System.Windows.Forms.RadioButton();
-            this.radioButtonExpenses = new System.Windows.Forms.RadioButton();
-            this.labelFilterByCategory = new System.Windows.Forms.Label();
-            this.comboBoxCategories = new System.Windows.Forms.ComboBox();
-            this.contextMenuStripEntry = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.labelFilter = new MaterialSkin.Controls.MaterialLabel();
+            this.checkBoxFilterDateTime = new MaterialSkin.Controls.MaterialCheckbox();
+            this.radioButtonAll = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioButtonIncome = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioButtonExpenses = new MaterialSkin.Controls.MaterialRadioButton();
+            this.comboBoxCategories = new MaterialSkin.Controls.MaterialComboBox();
+            this.contextMenuStripEntry = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.showDescriptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelSummary = new System.Windows.Forms.Label();
-            this.labelVisibleSummary = new System.Windows.Forms.Label();
+            this.labelSummary = new MaterialSkin.Controls.MaterialLabel();
+            this.labelVisibleSummary = new MaterialSkin.Controls.MaterialLabel();
             this.btnAddRecord = new MaterialSkin.Controls.MaterialButton();
             this.labelFilterFrom = new MaterialSkin.Controls.MaterialLabel();
             this.labelFilterTo = new MaterialSkin.Controls.MaterialLabel();
@@ -64,6 +62,7 @@
             this.columnHeaderValue = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderDate = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderCategory = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderType = new System.Windows.Forms.ColumnHeader();
             this.menuStrip.SuspendLayout();
             this.contextMenuStripEntry.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +76,7 @@
             this.aboutMenu});
             this.menuStrip.Location = new System.Drawing.Point(3, 64);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1011, 24);
+            this.menuStrip.Size = new System.Drawing.Size(889, 24);
             this.menuStrip.TabIndex = 0;
             // 
             // fileMenu
@@ -159,7 +158,7 @@
             // filterFromDateTime
             // 
             this.filterFromDateTime.Enabled = false;
-            this.filterFromDateTime.Location = new System.Drawing.Point(523, 183);
+            this.filterFromDateTime.Location = new System.Drawing.Point(645, 192);
             this.filterFromDateTime.Name = "filterFromDateTime";
             this.filterFromDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterFromDateTime.TabIndex = 0;
@@ -169,7 +168,7 @@
             // filterToDateTime
             // 
             this.filterToDateTime.Enabled = false;
-            this.filterToDateTime.Location = new System.Drawing.Point(523, 240);
+            this.filterToDateTime.Location = new System.Drawing.Point(645, 249);
             this.filterToDateTime.Name = "filterToDateTime";
             this.filterToDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterToDateTime.TabIndex = 2;
@@ -179,19 +178,27 @@
             // labelFilter
             // 
             this.labelFilter.AutoSize = true;
-            this.labelFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFilter.Location = new System.Drawing.Point(526, 96);
+            this.labelFilter.Depth = 0;
+            this.labelFilter.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFilter.Location = new System.Drawing.Point(630, 107);
+            this.labelFilter.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFilter.Name = "labelFilter";
-            this.labelFilter.Size = new System.Drawing.Size(52, 21);
+            this.labelFilter.Size = new System.Drawing.Size(44, 19);
             this.labelFilter.TabIndex = 5;
             this.labelFilter.Text = "Filters";
             // 
             // checkBoxFilterDateTime
             // 
             this.checkBoxFilterDateTime.AutoSize = true;
-            this.checkBoxFilterDateTime.Location = new System.Drawing.Point(526, 129);
+            this.checkBoxFilterDateTime.Depth = 0;
+            this.checkBoxFilterDateTime.Location = new System.Drawing.Point(633, 129);
+            this.checkBoxFilterDateTime.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxFilterDateTime.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkBoxFilterDateTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkBoxFilterDateTime.Name = "checkBoxFilterDateTime";
-            this.checkBoxFilterDateTime.Size = new System.Drawing.Size(121, 19);
+            this.checkBoxFilterDateTime.ReadOnly = false;
+            this.checkBoxFilterDateTime.Ripple = true;
+            this.checkBoxFilterDateTime.Size = new System.Drawing.Size(153, 37);
             this.checkBoxFilterDateTime.TabIndex = 6;
             this.checkBoxFilterDateTime.Text = "Filter date range.";
             this.checkBoxFilterDateTime.UseVisualStyleBackColor = true;
@@ -201,9 +208,14 @@
             // 
             this.radioButtonAll.AutoSize = true;
             this.radioButtonAll.Checked = true;
-            this.radioButtonAll.Location = new System.Drawing.Point(527, 312);
+            this.radioButtonAll.Depth = 0;
+            this.radioButtonAll.Location = new System.Drawing.Point(634, 312);
+            this.radioButtonAll.Margin = new System.Windows.Forms.Padding(0);
+            this.radioButtonAll.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioButtonAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.radioButtonAll.Name = "radioButtonAll";
-            this.radioButtonAll.Size = new System.Drawing.Size(39, 19);
+            this.radioButtonAll.Ripple = true;
+            this.radioButtonAll.Size = new System.Drawing.Size(53, 37);
             this.radioButtonAll.TabIndex = 7;
             this.radioButtonAll.TabStop = true;
             this.radioButtonAll.Text = "All";
@@ -213,9 +225,14 @@
             // radioButtonIncome
             // 
             this.radioButtonIncome.AutoSize = true;
-            this.radioButtonIncome.Location = new System.Drawing.Point(572, 312);
+            this.radioButtonIncome.Depth = 0;
+            this.radioButtonIncome.Location = new System.Drawing.Point(691, 312);
+            this.radioButtonIncome.Margin = new System.Windows.Forms.Padding(0);
+            this.radioButtonIncome.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioButtonIncome.MouseState = MaterialSkin.MouseState.HOVER;
             this.radioButtonIncome.Name = "radioButtonIncome";
-            this.radioButtonIncome.Size = new System.Drawing.Size(67, 19);
+            this.radioButtonIncome.Ripple = true;
+            this.radioButtonIncome.Size = new System.Drawing.Size(87, 37);
             this.radioButtonIncome.TabIndex = 8;
             this.radioButtonIncome.Text = "Income";
             this.radioButtonIncome.UseVisualStyleBackColor = true;
@@ -224,38 +241,52 @@
             // radioButtonExpenses
             // 
             this.radioButtonExpenses.AutoSize = true;
-            this.radioButtonExpenses.Location = new System.Drawing.Point(643, 312);
+            this.radioButtonExpenses.Depth = 0;
+            this.radioButtonExpenses.Location = new System.Drawing.Point(780, 312);
+            this.radioButtonExpenses.Margin = new System.Windows.Forms.Padding(0);
+            this.radioButtonExpenses.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioButtonExpenses.MouseState = MaterialSkin.MouseState.HOVER;
             this.radioButtonExpenses.Name = "radioButtonExpenses";
-            this.radioButtonExpenses.Size = new System.Drawing.Size(77, 19);
+            this.radioButtonExpenses.Ripple = true;
+            this.radioButtonExpenses.Size = new System.Drawing.Size(102, 37);
             this.radioButtonExpenses.TabIndex = 9;
             this.radioButtonExpenses.Text = "Expenses";
             this.radioButtonExpenses.UseVisualStyleBackColor = true;
             this.radioButtonExpenses.CheckedChanged += new System.EventHandler(this.radioButtonExpenses_CheckedChanged);
             // 
-            // labelFilterByCategory
-            // 
-            this.labelFilterByCategory.AutoSize = true;
-            this.labelFilterByCategory.Location = new System.Drawing.Point(525, 344);
-            this.labelFilterByCategory.Name = "labelFilterByCategory";
-            this.labelFilterByCategory.Size = new System.Drawing.Size(107, 15);
-            this.labelFilterByCategory.TabIndex = 11;
-            this.labelFilterByCategory.Text = "Filter by category:";
-            // 
             // comboBoxCategories
             // 
+            this.comboBoxCategories.AutoResize = false;
+            this.comboBoxCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxCategories.Depth = 0;
+            this.comboBoxCategories.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxCategories.DropDownHeight = 174;
+            this.comboBoxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategories.DropDownWidth = 121;
+            this.comboBoxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(525, 362);
+            this.comboBoxCategories.Hint = "Filiter by category";
+            this.comboBoxCategories.IntegralHeight = false;
+            this.comboBoxCategories.ItemHeight = 43;
+            this.comboBoxCategories.Location = new System.Drawing.Point(632, 368);
+            this.comboBoxCategories.MaxDropDownItems = 4;
+            this.comboBoxCategories.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxCategories.Name = "comboBoxCategories";
-            this.comboBoxCategories.Size = new System.Drawing.Size(217, 23);
+            this.comboBoxCategories.Size = new System.Drawing.Size(217, 49);
+            this.comboBoxCategories.StartIndex = 0;
             this.comboBoxCategories.TabIndex = 12;
             this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategories_SelectedIndexChanged);
             // 
             // contextMenuStripEntry
             // 
+            this.contextMenuStripEntry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.contextMenuStripEntry.Depth = 0;
             this.contextMenuStripEntry.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDescriptionMenuItem,
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
+            this.contextMenuStripEntry.MouseState = MaterialSkin.MouseState.HOVER;
             this.contextMenuStripEntry.Name = "contextMenuStripEntry";
             this.contextMenuStripEntry.Size = new System.Drawing.Size(172, 70);
             this.contextMenuStripEntry.Text = "Entry Context Menu";
@@ -285,18 +316,24 @@
             // labelSummary
             // 
             this.labelSummary.AutoSize = true;
-            this.labelSummary.Location = new System.Drawing.Point(9, 488);
+            this.labelSummary.Depth = 0;
+            this.labelSummary.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelSummary.Location = new System.Drawing.Point(17, 519);
+            this.labelSummary.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelSummary.Name = "labelSummary";
-            this.labelSummary.Size = new System.Drawing.Size(63, 15);
+            this.labelSummary.Size = new System.Drawing.Size(74, 19);
             this.labelSummary.TabIndex = 16;
             this.labelSummary.Text = "Summary:";
             // 
             // labelVisibleSummary
             // 
             this.labelVisibleSummary.AutoSize = true;
-            this.labelVisibleSummary.Location = new System.Drawing.Point(9, 505);
+            this.labelVisibleSummary.Depth = 0;
+            this.labelVisibleSummary.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelVisibleSummary.Location = new System.Drawing.Point(17, 545);
+            this.labelVisibleSummary.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelVisibleSummary.Name = "labelVisibleSummary";
-            this.labelVisibleSummary.Size = new System.Drawing.Size(106, 15);
+            this.labelVisibleSummary.Size = new System.Drawing.Size(128, 19);
             this.labelVisibleSummary.TabIndex = 17;
             this.labelVisibleSummary.Text = "Filtered summary:";
             // 
@@ -310,7 +347,7 @@
             this.btnAddRecord.DrawShadows = false;
             this.btnAddRecord.HighEmphasis = true;
             this.btnAddRecord.Icon = null;
-            this.btnAddRecord.Location = new System.Drawing.Point(526, 416);
+            this.btnAddRecord.Location = new System.Drawing.Point(633, 422);
             this.btnAddRecord.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddRecord.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddRecord.Name = "btnAddRecord";
@@ -327,8 +364,9 @@
             // 
             this.labelFilterFrom.AutoSize = true;
             this.labelFilterFrom.Depth = 0;
+            this.labelFilterFrom.Enabled = false;
             this.labelFilterFrom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelFilterFrom.Location = new System.Drawing.Point(523, 161);
+            this.labelFilterFrom.Location = new System.Drawing.Point(645, 170);
             this.labelFilterFrom.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFilterFrom.Name = "labelFilterFrom";
             this.labelFilterFrom.Size = new System.Drawing.Size(82, 19);
@@ -339,8 +377,9 @@
             // 
             this.labelFilterTo.AutoSize = true;
             this.labelFilterTo.Depth = 0;
+            this.labelFilterTo.Enabled = false;
             this.labelFilterTo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelFilterTo.Location = new System.Drawing.Point(523, 218);
+            this.labelFilterTo.Location = new System.Drawing.Point(645, 227);
             this.labelFilterTo.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFilterTo.Name = "labelFilterTo";
             this.labelFilterTo.Size = new System.Drawing.Size(62, 19);
@@ -352,7 +391,7 @@
             this.labelFilterByType.AutoSize = true;
             this.labelFilterByType.Depth = 0;
             this.labelFilterByType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelFilterByType.Location = new System.Drawing.Point(526, 290);
+            this.labelFilterByType.Location = new System.Drawing.Point(633, 290);
             this.labelFilterByType.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFilterByType.Name = "labelFilterByType";
             this.labelFilterByType.Size = new System.Drawing.Size(99, 19);
@@ -370,17 +409,20 @@
             this.columnHeaderTitle,
             this.columnHeaderValue,
             this.columnHeaderDate,
-            this.columnHeaderCategory});
+            this.columnHeaderCategory,
+            this.columnHeaderType});
+            this.listViewEntries.ContextMenuStrip = this.contextMenuStripEntry;
             this.listViewEntries.Depth = 0;
+            this.listViewEntries.Font = new System.Drawing.Font("Cascadia Code SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewEntries.FullRowSelect = true;
-            this.listViewEntries.GridLines = true;
-            this.listViewEntries.Location = new System.Drawing.Point(28, 106);
+            this.listViewEntries.Location = new System.Drawing.Point(14, 118);
             this.listViewEntries.MinimumSize = new System.Drawing.Size(200, 100);
             this.listViewEntries.MouseLocation = new System.Drawing.Point(-1, -1);
             this.listViewEntries.MouseState = MaterialSkin.MouseState.OUT;
             this.listViewEntries.Name = "listViewEntries";
             this.listViewEntries.OwnerDraw = true;
-            this.listViewEntries.Size = new System.Drawing.Size(475, 374);
+            this.listViewEntries.ShowItemToolTips = true;
+            this.listViewEntries.Size = new System.Drawing.Size(600, 384);
             this.listViewEntries.TabIndex = 15;
             this.listViewEntries.UseCompatibleStateImageBehavior = false;
             this.listViewEntries.View = System.Windows.Forms.View.Details;
@@ -405,11 +447,16 @@
             this.columnHeaderCategory.Text = "Category";
             this.columnHeaderCategory.Width = 150;
             // 
+            // columnHeaderType
+            // 
+            this.columnHeaderType.Text = "Type";
+            this.columnHeaderType.Width = 100;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 620);
+            this.ClientSize = new System.Drawing.Size(895, 657);
             this.Controls.Add(this.listViewEntries);
             this.Controls.Add(this.labelFilterByType);
             this.Controls.Add(this.labelFilterTo);
@@ -418,7 +465,6 @@
             this.Controls.Add(this.labelVisibleSummary);
             this.Controls.Add(this.labelSummary);
             this.Controls.Add(this.comboBoxCategories);
-            this.Controls.Add(this.labelFilterByCategory);
             this.Controls.Add(this.radioButtonExpenses);
             this.Controls.Add(this.radioButtonIncome);
             this.Controls.Add(this.radioButtonAll);
@@ -427,7 +473,6 @@
             this.Controls.Add(this.filterToDateTime);
             this.Controls.Add(this.filterFromDateTime);
             this.Controls.Add(this.menuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -454,19 +499,16 @@
         private ToolStripMenuItem optionsMoreMenuItem;
         private DateTimePicker filterFromDateTime;
         private DateTimePicker filterToDateTime;
-        private Label labelFilter;
-        private CheckBox checkBoxFilterDateTime;
-        private RadioButton radioButtonAll;
-        private RadioButton radioButtonIncome;
-        private RadioButton radioButtonExpenses;
-        private Label labelFilterByCategory;
-        private ComboBox comboBoxCategories;
-        private ContextMenuStrip contextMenuStripEntry;
+        private MaterialSkin.Controls.MaterialCheckbox checkBoxFilterDateTime;
+        private MaterialSkin.Controls.MaterialRadioButton radioButtonAll;
+        private MaterialSkin.Controls.MaterialRadioButton radioButtonIncome;
+        private MaterialSkin.Controls.MaterialRadioButton radioButtonExpenses;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxCategories;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem openMenuItem;
-        private Label labelSummary;
-        private Label labelVisibleSummary;
+        private MaterialSkin.Controls.MaterialLabel labelSummary;
+        private MaterialSkin.Controls.MaterialLabel labelVisibleSummary;
         private ToolStripMenuItem showDescriptionMenuItem;
         private ToolStripMenuItem exportAsCsvMoreMenuItem;
         private ToolStripMenuItem aboutMenu;
@@ -479,5 +521,8 @@
         private ColumnHeader columnHeaderValue;
         private ColumnHeader columnHeaderDate;
         private ColumnHeader columnHeaderCategory;
+        private MaterialSkin.Controls.MaterialLabel labelFilter;
+        private MaterialSkin.Controls.MaterialContextMenuStrip contextMenuStripEntry;
+        private ColumnHeader columnHeaderType;
     }
 }

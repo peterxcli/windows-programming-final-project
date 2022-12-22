@@ -1,16 +1,26 @@
-﻿namespace spending_tracker.Forms;
+﻿using spending_tracker.Classes;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
-public partial class EditExistingEntryForm : Form
+namespace spending_tracker.Forms;
+
+public partial class EditExistingEntryForm : MaterialForm
 {
     Classes.ExpenseManager _manager;
     Guid _entryId;
     Classes.Entry _editEntry;
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     public EditExistingEntryForm(Classes.ExpenseManager manager, Guid entryId)
     {
         _manager = manager;
         _entryId = entryId;
         _manager.TryFindEntry(_entryId, out _editEntry);
         InitializeComponent();
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
     }
 
     private void buttonEditExistingEntry_Click(object sender, EventArgs e)
@@ -76,6 +86,8 @@ public partial class EditExistingEntryForm : Form
         textBoxTitle.Text = _editEntry.Title;
         textBoxDescription.Text = _editEntry.Description;
         textBoxValue.Text = _editEntry.Value.ToString();
+        radioButtonIncome.Checked = _editEntry.IsIncome;
+        radioButtonExpenses.Checked = !_editEntry.IsIncome;
     }
 
 }
