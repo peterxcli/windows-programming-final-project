@@ -4,6 +4,7 @@ using System.Text.Json;
 using spending_tracker.Classes;
 using spending_tracker.Forms;
 using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace life_assistant.spending_tracker;
 
@@ -26,8 +27,13 @@ public partial class MainForm : MaterialForm
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
-        materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
+        materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+        materialSkinManager.ColorScheme = new ColorScheme(
+                   Primary.Cyan700,
+                   Primary.Cyan900,
+                   Primary.Cyan500,
+                   Accent.DeepOrange200,
+                   TextShade.WHITE);
 
         _filters = new()
             {
@@ -190,8 +196,7 @@ public partial class MainForm : MaterialForm
 
         PopulateListViewEntries();
     }
-
-    private void buttonAddNewEntry_Click(object sender, EventArgs e)
+    private void btnAddRecord_Click(object sender, EventArgs e)
     {
         var addNewEntryForm = new AddNewEntryForm(_manager);
         addNewEntryForm.ShowDialog();

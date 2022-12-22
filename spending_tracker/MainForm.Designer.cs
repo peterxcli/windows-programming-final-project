@@ -42,29 +42,28 @@
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.filterFromDateTime = new System.Windows.Forms.DateTimePicker();
             this.filterToDateTime = new System.Windows.Forms.DateTimePicker();
-            this.labelFilterFrom = new System.Windows.Forms.Label();
-            this.labelFilterTo = new System.Windows.Forms.Label();
             this.labelFilter = new System.Windows.Forms.Label();
             this.checkBoxFilterDateTime = new System.Windows.Forms.CheckBox();
             this.radioButtonAll = new System.Windows.Forms.RadioButton();
             this.radioButtonIncome = new System.Windows.Forms.RadioButton();
             this.radioButtonExpenses = new System.Windows.Forms.RadioButton();
-            this.labelFilterByType = new System.Windows.Forms.Label();
             this.labelFilterByCategory = new System.Windows.Forms.Label();
             this.comboBoxCategories = new System.Windows.Forms.ComboBox();
-            this.labelActions = new System.Windows.Forms.Label();
-            this.buttonAddNewEntry = new System.Windows.Forms.Button();
-            this.listViewEntries = new System.Windows.Forms.ListView();
-            this.columnHeaderTitle = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderValue = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderCategory = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStripEntry = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDescriptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSummary = new System.Windows.Forms.Label();
             this.labelVisibleSummary = new System.Windows.Forms.Label();
+            this.btnAddRecord = new MaterialSkin.Controls.MaterialButton();
+            this.labelFilterFrom = new MaterialSkin.Controls.MaterialLabel();
+            this.labelFilterTo = new MaterialSkin.Controls.MaterialLabel();
+            this.labelFilterByType = new MaterialSkin.Controls.MaterialLabel();
+            this.listViewEntries = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeaderTitle = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderValue = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderDate = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderCategory = new System.Windows.Forms.ColumnHeader();
             this.menuStrip.SuspendLayout();
             this.contextMenuStripEntry.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +77,7 @@
             this.aboutMenu});
             this.menuStrip.Location = new System.Drawing.Point(3, 64);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(803, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1011, 24);
             this.menuStrip.TabIndex = 0;
             // 
             // fileMenu
@@ -160,7 +159,7 @@
             // filterFromDateTime
             // 
             this.filterFromDateTime.Enabled = false;
-            this.filterFromDateTime.Location = new System.Drawing.Point(526, 169);
+            this.filterFromDateTime.Location = new System.Drawing.Point(523, 183);
             this.filterFromDateTime.Name = "filterFromDateTime";
             this.filterFromDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterFromDateTime.TabIndex = 0;
@@ -170,32 +169,12 @@
             // filterToDateTime
             // 
             this.filterToDateTime.Enabled = false;
-            this.filterToDateTime.Location = new System.Drawing.Point(526, 213);
+            this.filterToDateTime.Location = new System.Drawing.Point(523, 240);
             this.filterToDateTime.Name = "filterToDateTime";
             this.filterToDateTime.Size = new System.Drawing.Size(222, 23);
             this.filterToDateTime.TabIndex = 2;
             this.filterToDateTime.Value = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.filterToDateTime.ValueChanged += new System.EventHandler(this.filterToDateTime_ValueChanged);
-            // 
-            // labelFilterFrom
-            // 
-            this.labelFilterFrom.AutoSize = true;
-            this.labelFilterFrom.Enabled = false;
-            this.labelFilterFrom.Location = new System.Drawing.Point(537, 151);
-            this.labelFilterFrom.Name = "labelFilterFrom";
-            this.labelFilterFrom.Size = new System.Drawing.Size(67, 15);
-            this.labelFilterFrom.TabIndex = 3;
-            this.labelFilterFrom.Text = "Filter from:";
-            // 
-            // labelFilterTo
-            // 
-            this.labelFilterTo.AutoSize = true;
-            this.labelFilterTo.Enabled = false;
-            this.labelFilterTo.Location = new System.Drawing.Point(537, 195);
-            this.labelFilterTo.Name = "labelFilterTo";
-            this.labelFilterTo.Size = new System.Drawing.Size(52, 15);
-            this.labelFilterTo.TabIndex = 4;
-            this.labelFilterTo.Text = "Filter to:";
             // 
             // labelFilter
             // 
@@ -222,7 +201,7 @@
             // 
             this.radioButtonAll.AutoSize = true;
             this.radioButtonAll.Checked = true;
-            this.radioButtonAll.Location = new System.Drawing.Point(530, 269);
+            this.radioButtonAll.Location = new System.Drawing.Point(527, 312);
             this.radioButtonAll.Name = "radioButtonAll";
             this.radioButtonAll.Size = new System.Drawing.Size(39, 19);
             this.radioButtonAll.TabIndex = 7;
@@ -234,7 +213,7 @@
             // radioButtonIncome
             // 
             this.radioButtonIncome.AutoSize = true;
-            this.radioButtonIncome.Location = new System.Drawing.Point(575, 269);
+            this.radioButtonIncome.Location = new System.Drawing.Point(572, 312);
             this.radioButtonIncome.Name = "radioButtonIncome";
             this.radioButtonIncome.Size = new System.Drawing.Size(67, 19);
             this.radioButtonIncome.TabIndex = 8;
@@ -245,7 +224,7 @@
             // radioButtonExpenses
             // 
             this.radioButtonExpenses.AutoSize = true;
-            this.radioButtonExpenses.Location = new System.Drawing.Point(646, 269);
+            this.radioButtonExpenses.Location = new System.Drawing.Point(643, 312);
             this.radioButtonExpenses.Name = "radioButtonExpenses";
             this.radioButtonExpenses.Size = new System.Drawing.Size(77, 19);
             this.radioButtonExpenses.TabIndex = 9;
@@ -253,19 +232,10 @@
             this.radioButtonExpenses.UseVisualStyleBackColor = true;
             this.radioButtonExpenses.CheckedChanged += new System.EventHandler(this.radioButtonExpenses_CheckedChanged);
             // 
-            // labelFilterByType
-            // 
-            this.labelFilterByType.AutoSize = true;
-            this.labelFilterByType.Location = new System.Drawing.Point(526, 251);
-            this.labelFilterByType.Name = "labelFilterByType";
-            this.labelFilterByType.Size = new System.Drawing.Size(82, 15);
-            this.labelFilterByType.TabIndex = 10;
-            this.labelFilterByType.Text = "Filter by type:";
-            // 
             // labelFilterByCategory
             // 
             this.labelFilterByCategory.AutoSize = true;
-            this.labelFilterByCategory.Location = new System.Drawing.Point(528, 301);
+            this.labelFilterByCategory.Location = new System.Drawing.Point(525, 344);
             this.labelFilterByCategory.Name = "labelFilterByCategory";
             this.labelFilterByCategory.Size = new System.Drawing.Size(107, 15);
             this.labelFilterByCategory.TabIndex = 11;
@@ -274,72 +244,11 @@
             // comboBoxCategories
             // 
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(528, 319);
+            this.comboBoxCategories.Location = new System.Drawing.Point(525, 362);
             this.comboBoxCategories.Name = "comboBoxCategories";
             this.comboBoxCategories.Size = new System.Drawing.Size(217, 23);
             this.comboBoxCategories.TabIndex = 12;
             this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategories_SelectedIndexChanged);
-            // 
-            // labelActions
-            // 
-            this.labelActions.AutoSize = true;
-            this.labelActions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelActions.Location = new System.Drawing.Point(523, 404);
-            this.labelActions.Name = "labelActions";
-            this.labelActions.Size = new System.Drawing.Size(61, 21);
-            this.labelActions.TabIndex = 13;
-            this.labelActions.Text = "Actions";
-            // 
-            // buttonAddNewEntry
-            // 
-            this.buttonAddNewEntry.Location = new System.Drawing.Point(529, 428);
-            this.buttonAddNewEntry.Name = "buttonAddNewEntry";
-            this.buttonAddNewEntry.Size = new System.Drawing.Size(217, 57);
-            this.buttonAddNewEntry.TabIndex = 14;
-            this.buttonAddNewEntry.Text = "Add new entry";
-            this.buttonAddNewEntry.UseVisualStyleBackColor = true;
-            this.buttonAddNewEntry.Click += new System.EventHandler(this.buttonAddNewEntry_Click);
-            // 
-            // listViewEntries
-            // 
-            this.listViewEntries.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listViewEntries.AutoArrange = false;
-            this.listViewEntries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderTitle,
-            this.columnHeaderValue,
-            this.columnHeaderDate,
-            this.columnHeaderCategory});
-            this.listViewEntries.ContextMenuStrip = this.contextMenuStripEntry;
-            this.listViewEntries.FullRowSelect = true;
-            this.listViewEntries.GridLines = true;
-            this.listViewEntries.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewEntries.Location = new System.Drawing.Point(9, 96);
-            this.listViewEntries.MultiSelect = false;
-            this.listViewEntries.Name = "listViewEntries";
-            this.listViewEntries.Size = new System.Drawing.Size(508, 389);
-            this.listViewEntries.TabIndex = 15;
-            this.listViewEntries.UseCompatibleStateImageBehavior = false;
-            this.listViewEntries.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderTitle
-            // 
-            this.columnHeaderTitle.Text = "Title";
-            this.columnHeaderTitle.Width = 100;
-            // 
-            // columnHeaderValue
-            // 
-            this.columnHeaderValue.Text = "Value";
-            this.columnHeaderValue.Width = 100;
-            // 
-            // columnHeaderDate
-            // 
-            this.columnHeaderDate.Text = "Date";
-            this.columnHeaderDate.Width = 150;
-            // 
-            // columnHeaderCategory
-            // 
-            this.columnHeaderCategory.Text = "Category";
-            this.columnHeaderCategory.Width = 150;
             // 
             // contextMenuStripEntry
             // 
@@ -391,26 +300,130 @@
             this.labelVisibleSummary.TabIndex = 17;
             this.labelVisibleSummary.Text = "Filtered summary:";
             // 
+            // btnAddRecord
+            // 
+            this.btnAddRecord.AutoEllipsis = true;
+            this.btnAddRecord.AutoSize = false;
+            this.btnAddRecord.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAddRecord.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAddRecord.Depth = 0;
+            this.btnAddRecord.DrawShadows = false;
+            this.btnAddRecord.HighEmphasis = true;
+            this.btnAddRecord.Icon = null;
+            this.btnAddRecord.Location = new System.Drawing.Point(526, 416);
+            this.btnAddRecord.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAddRecord.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAddRecord.Name = "btnAddRecord";
+            this.btnAddRecord.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAddRecord.Size = new System.Drawing.Size(219, 64);
+            this.btnAddRecord.TabIndex = 18;
+            this.btnAddRecord.Text = "add record";
+            this.btnAddRecord.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAddRecord.UseAccentColor = false;
+            this.btnAddRecord.UseVisualStyleBackColor = true;
+            this.btnAddRecord.Click += new System.EventHandler(this.btnAddRecord_Click);
+            // 
+            // labelFilterFrom
+            // 
+            this.labelFilterFrom.AutoSize = true;
+            this.labelFilterFrom.Depth = 0;
+            this.labelFilterFrom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFilterFrom.Location = new System.Drawing.Point(523, 161);
+            this.labelFilterFrom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelFilterFrom.Name = "labelFilterFrom";
+            this.labelFilterFrom.Size = new System.Drawing.Size(82, 19);
+            this.labelFilterFrom.TabIndex = 19;
+            this.labelFilterFrom.Text = "Filiter from:";
+            // 
+            // labelFilterTo
+            // 
+            this.labelFilterTo.AutoSize = true;
+            this.labelFilterTo.Depth = 0;
+            this.labelFilterTo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFilterTo.Location = new System.Drawing.Point(523, 218);
+            this.labelFilterTo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelFilterTo.Name = "labelFilterTo";
+            this.labelFilterTo.Size = new System.Drawing.Size(62, 19);
+            this.labelFilterTo.TabIndex = 20;
+            this.labelFilterTo.Text = "Filiter to:";
+            // 
+            // labelFilterByType
+            // 
+            this.labelFilterByType.AutoSize = true;
+            this.labelFilterByType.Depth = 0;
+            this.labelFilterByType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFilterByType.Location = new System.Drawing.Point(526, 290);
+            this.labelFilterByType.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelFilterByType.Name = "labelFilterByType";
+            this.labelFilterByType.Size = new System.Drawing.Size(99, 19);
+            this.labelFilterByType.TabIndex = 21;
+            this.labelFilterByType.Text = "Filiter by type:";
+            // 
+            // listViewEntries
+            // 
+            this.listViewEntries.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewEntries.AutoArrange = false;
+            this.listViewEntries.AutoSizeTable = false;
+            this.listViewEntries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listViewEntries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewEntries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTitle,
+            this.columnHeaderValue,
+            this.columnHeaderDate,
+            this.columnHeaderCategory});
+            this.listViewEntries.Depth = 0;
+            this.listViewEntries.FullRowSelect = true;
+            this.listViewEntries.GridLines = true;
+            this.listViewEntries.Location = new System.Drawing.Point(28, 106);
+            this.listViewEntries.MinimumSize = new System.Drawing.Size(200, 100);
+            this.listViewEntries.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.listViewEntries.MouseState = MaterialSkin.MouseState.OUT;
+            this.listViewEntries.Name = "listViewEntries";
+            this.listViewEntries.OwnerDraw = true;
+            this.listViewEntries.Size = new System.Drawing.Size(475, 374);
+            this.listViewEntries.TabIndex = 15;
+            this.listViewEntries.UseCompatibleStateImageBehavior = false;
+            this.listViewEntries.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderTitle
+            // 
+            this.columnHeaderTitle.Text = "Title";
+            this.columnHeaderTitle.Width = 100;
+            // 
+            // columnHeaderValue
+            // 
+            this.columnHeaderValue.Text = "Value";
+            this.columnHeaderValue.Width = 100;
+            // 
+            // columnHeaderDate
+            // 
+            this.columnHeaderDate.Text = "Date";
+            this.columnHeaderDate.Width = 150;
+            // 
+            // columnHeaderCategory
+            // 
+            this.columnHeaderCategory.Text = "Category";
+            this.columnHeaderCategory.Width = 150;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 574);
+            this.ClientSize = new System.Drawing.Size(1017, 620);
+            this.Controls.Add(this.listViewEntries);
+            this.Controls.Add(this.labelFilterByType);
+            this.Controls.Add(this.labelFilterTo);
+            this.Controls.Add(this.labelFilterFrom);
+            this.Controls.Add(this.btnAddRecord);
             this.Controls.Add(this.labelVisibleSummary);
             this.Controls.Add(this.labelSummary);
-            this.Controls.Add(this.listViewEntries);
-            this.Controls.Add(this.buttonAddNewEntry);
-            this.Controls.Add(this.labelActions);
             this.Controls.Add(this.comboBoxCategories);
             this.Controls.Add(this.labelFilterByCategory);
-            this.Controls.Add(this.labelFilterByType);
             this.Controls.Add(this.radioButtonExpenses);
             this.Controls.Add(this.radioButtonIncome);
             this.Controls.Add(this.radioButtonAll);
             this.Controls.Add(this.checkBoxFilterDateTime);
             this.Controls.Add(this.labelFilter);
-            this.Controls.Add(this.labelFilterTo);
-            this.Controls.Add(this.labelFilterFrom);
             this.Controls.Add(this.filterToDateTime);
             this.Controls.Add(this.filterFromDateTime);
             this.Controls.Add(this.menuStrip);
@@ -441,23 +454,13 @@
         private ToolStripMenuItem optionsMoreMenuItem;
         private DateTimePicker filterFromDateTime;
         private DateTimePicker filterToDateTime;
-        private Label labelFilterFrom;
-        private Label labelFilterTo;
         private Label labelFilter;
         private CheckBox checkBoxFilterDateTime;
         private RadioButton radioButtonAll;
         private RadioButton radioButtonIncome;
         private RadioButton radioButtonExpenses;
-        private Label labelFilterByType;
         private Label labelFilterByCategory;
         private ComboBox comboBoxCategories;
-        private Label labelActions;
-        private Button buttonAddNewEntry;
-        private ListView listViewEntries;
-        private ColumnHeader columnHeaderTitle;
-        private ColumnHeader columnHeaderValue;
-        private ColumnHeader columnHeaderDate;
-        private ColumnHeader columnHeaderCategory;
         private ContextMenuStrip contextMenuStripEntry;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
@@ -467,5 +470,14 @@
         private ToolStripMenuItem showDescriptionMenuItem;
         private ToolStripMenuItem exportAsCsvMoreMenuItem;
         private ToolStripMenuItem aboutMenu;
+        private MaterialSkin.Controls.MaterialButton btnAddRecord;
+        private MaterialSkin.Controls.MaterialLabel labelFilterFrom;
+        private MaterialSkin.Controls.MaterialLabel labelFilterTo;
+        private MaterialSkin.Controls.MaterialLabel labelFilterByType;
+        private MaterialSkin.Controls.MaterialListView listViewEntries;
+        private ColumnHeader columnHeaderTitle;
+        private ColumnHeader columnHeaderValue;
+        private ColumnHeader columnHeaderDate;
+        private ColumnHeader columnHeaderCategory;
     }
 }
