@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.components = new System.ComponentModel.Container();
+            this.menuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +49,9 @@
             this.radioButtonExpenses = new MaterialSkin.Controls.MaterialRadioButton();
             this.comboBoxCategories = new MaterialSkin.Controls.MaterialComboBox();
             this.contextMenuStripEntry = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.showDescriptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDescriptionMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
+            this.editToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
+            this.deleteToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.labelSummary = new MaterialSkin.Controls.MaterialLabel();
             this.labelVisibleSummary = new MaterialSkin.Controls.MaterialLabel();
             this.btnAddRecord = new MaterialSkin.Controls.MaterialButton();
@@ -74,10 +75,8 @@
             this.categoriesMenu,
             this.moreMenu,
             this.aboutMenu});
-            this.menuStrip.Location = new System.Drawing.Point(3, 64);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(889, 24);
-            this.menuStrip.TabIndex = 0;
             // 
             // fileMenu
             // 
@@ -294,6 +293,7 @@
             // 
             // showDescriptionMenuItem
             // 
+            this.showDescriptionMenuItem.AutoSize = false;
             this.showDescriptionMenuItem.Name = "showDescriptionMenuItem";
             this.showDescriptionMenuItem.Size = new System.Drawing.Size(171, 22);
             this.showDescriptionMenuItem.Text = "Show description";
@@ -301,6 +301,7 @@
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.AutoSize = false;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.editToolStripMenuItem.Text = "Edit";
@@ -308,6 +309,7 @@
             // 
             // deleteToolStripMenuItem
             // 
+            this.deleteToolStripMenuItem.AutoSize = false;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
@@ -457,6 +459,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 657);
+            this.ContextMenuStrip = this.menuStrip;
             this.Controls.Add(this.listViewEntries);
             this.Controls.Add(this.labelFilterByType);
             this.Controls.Add(this.labelFilterTo);
@@ -472,15 +475,12 @@
             this.Controls.Add(this.labelFilter);
             this.Controls.Add(this.filterToDateTime);
             this.Controls.Add(this.filterFromDateTime);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "Spending Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.contextMenuStripEntry.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -489,7 +489,7 @@
 
         #endregion
 
-        private MenuStrip menuStrip;
+        private MaterialSkin.Controls.MaterialContextMenuStrip menuStrip;
         private ToolStripMenuItem fileMenu;
         private ToolStripMenuItem saveAsFileMenuItem;
         private ToolStripMenuItem categoriesMenu;
@@ -504,12 +504,13 @@
         private MaterialSkin.Controls.MaterialRadioButton radioButtonIncome;
         private MaterialSkin.Controls.MaterialRadioButton radioButtonExpenses;
         private MaterialSkin.Controls.MaterialComboBox comboBoxCategories;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem deleteToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialToolStripMenuItem editToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialToolStripMenuItem deleteToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialToolStripMenuItem showDescriptionMenuItem;
         private ToolStripMenuItem openMenuItem;
         private MaterialSkin.Controls.MaterialLabel labelSummary;
         private MaterialSkin.Controls.MaterialLabel labelVisibleSummary;
-        private ToolStripMenuItem showDescriptionMenuItem;
+        
         private ToolStripMenuItem exportAsCsvMoreMenuItem;
         private ToolStripMenuItem aboutMenu;
         private MaterialSkin.Controls.MaterialButton btnAddRecord;

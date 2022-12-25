@@ -120,10 +120,10 @@ public partial class MainForm : MaterialForm
     {
         if (_manager.DefaultDataFilePath != _manager.WorkingDataFilePath)
         {
-            Text = $"Expense Manager @ {_manager.WorkingDataFilePath}";
+            Text = $"Spending Manager @ {_manager.WorkingDataFilePath}";
             return;
         }
-        Text = "Expense Manager";
+        Text = "Spending Manager";
     }
 
     private void PopulateListViewEntries()
@@ -286,7 +286,7 @@ public partial class MainForm : MaterialForm
         {
             InitialDirectory = Environment.CurrentDirectory,
             Filter = "json files (*.json) | *.json",
-            FileName = "expense-manager-data.json",
+            FileName = "spending-manager-data.json",
             OverwritePrompt = true,
             AddExtension = true,
             DefaultExt = ".json",
@@ -347,11 +347,11 @@ public partial class MainForm : MaterialForm
         {
             InitialDirectory = Environment.CurrentDirectory,
             Filter = "csv files (*.csv) | *.csv",
-            FileName = "expense-manager-export.csv",
+            FileName = "spending-manager-export.csv",
             OverwritePrompt = true,
             AddExtension = true,
             DefaultExt = ".csv",
-            Title = "Export data"
+            Title = "Export data",
         };
 
         if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -399,7 +399,7 @@ public partial class MainForm : MaterialForm
             {
                 ProcessStartInfo processStartInfo = new()
                 {
-                    FileName = "https://github.com/peterxcli/windows-programming-final-project",
+                    FileName = "https://github.com/peterxcli/windows-programming-final-project/tree/feature/spending-tracker",
                     UseShellExecute = true,
                 };
                 Process.Start(processStartInfo);

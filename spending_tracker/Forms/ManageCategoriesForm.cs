@@ -1,15 +1,24 @@
 ﻿using System;
+using MaterialSkin.Controls;
+using MaterialSkin;
+using spending_tracker.Classes;
 namespace spending_tracker.Forms;
 
 
-public partial class ManageCategoriesForm : Form
+public partial class ManageCategoriesForm : MaterialForm
 {
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     private Classes.ExpenseManager _manager;
     private bool _isEditingCategory = false;
     private string _categoryEditing = "";
     public ManageCategoriesForm(Classes.ExpenseManager manager)
     {
         InitializeComponent();
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
         _manager = manager;
     }
     private void ResetAllControls()
@@ -33,7 +42,8 @@ public partial class ManageCategoriesForm : Form
         {
             if (item.Value == "No category")
                 continue;
-            listBoxCategories.Items.Add(item.Value);
+            MaterialListBoxItem materialListBoxItem = new MaterialListBoxItem(item.Value);
+            listBoxCategories.Items.Add(materialListBoxItem);
         }
     }
     private void ManageCategoriesForm_Load(object sender, EventArgs e)
@@ -82,14 +92,15 @@ public partial class ManageCategoriesForm : Form
         {
             buttonAddEditCategory.Enabled = false;
         }
-        buttonAddEditCategory.Enabled = true;
+        else buttonAddEditCategory.Enabled = true;
     }
     private void editToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        _categoryEditing = listBoxCategories.SelectedItem.ToString();
+        if (listBoxCategories.SelectedItem == null) return;
+        _categoryEditing = listBoxCategories.SelectedItem.Text.ToString();
         listBoxCategories.Enabled = false;
         SetButtonEdit();
-        textBoxNewCategory.Text = listBoxCategories.SelectedItem.ToString();
+        textBoxNewCategory.Text = listBoxCategories.SelectedItem.Text.ToString();
     }
     private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
     {

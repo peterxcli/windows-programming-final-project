@@ -12,7 +12,7 @@ namespace spending_tracker.Classes;
 public class ExpenseManager
 {
     #region Fields
-    public readonly string DefaultDataFilePath = @"./data/data.json";
+    public readonly string DefaultDataFilePath = @"./data/spending-manager-data.json";
     private string _workingDataFilePath;
     private List<Entry> _entries = new();
     private Dictionary<Guid, string> _categories = new()

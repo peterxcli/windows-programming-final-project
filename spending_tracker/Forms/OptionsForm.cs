@@ -1,13 +1,22 @@
 ﻿using System.Xml.Xsl;
+using MaterialSkin.Controls;
+using MaterialSkin;
+using spending_tracker.Classes;
 
 namespace spending_tracker.Forms;
 
-public partial class OptionsForm : Form
+public partial class OptionsForm : MaterialForm
 {
     private Classes.ExpenseManager _manager;
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     public OptionsForm(Classes.ExpenseManager manager)
     {
         InitializeComponent();
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
         _manager = manager;
     }
 
