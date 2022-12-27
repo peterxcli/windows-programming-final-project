@@ -432,12 +432,12 @@
             // columnHeaderTitle
             // 
             this.columnHeaderTitle.Text = "Title";
-            this.columnHeaderTitle.Width = 100;
+            this.columnHeaderTitle.Width = 175;
             // 
             // columnHeaderValue
             // 
             this.columnHeaderValue.Text = "Value";
-            this.columnHeaderValue.Width = 100;
+            this.columnHeaderValue.Width = 150;
             // 
             // columnHeaderDate
             // 
@@ -452,7 +452,7 @@
             // columnHeaderType
             // 
             this.columnHeaderType.Text = "Type";
-            this.columnHeaderType.Width = 100;
+            this.columnHeaderType.Width = 150;
             // 
             // MainForm
             // 
