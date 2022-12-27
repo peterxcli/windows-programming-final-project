@@ -1,7 +1,7 @@
 ﻿using System;
 using MaterialSkin.Controls;
 using MaterialSkin;
-using spending_tracker.Classes;
+
 namespace spending_tracker.Forms;
 
 
@@ -17,7 +17,7 @@ public partial class ManageCategoriesForm : MaterialForm
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
         _manager = manager;
     }

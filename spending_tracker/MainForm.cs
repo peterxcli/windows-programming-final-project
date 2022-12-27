@@ -1,18 +1,18 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
-using spending_tracker.Classes;
 using spending_tracker.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using spending_tracker.Classes;
 
-namespace life_assistant.spending_tracker;
+namespace spending_tracker;
 
 public partial class MainForm : MaterialForm
 {
     #region Fields
-    private readonly ExpenseManager _manager = new();
-    private readonly List<Predicate<Entry>> _filters;
+    private readonly Classes.ExpenseManager _manager = new ();
+    private readonly List<Predicate<Classes.Entry>> _filters;
     private (decimal Income, decimal Expense) _total;
     private (decimal Income, decimal Expense) _visibleTotal;
     #endregion
@@ -27,14 +27,7 @@ public partial class MainForm : MaterialForm
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        // materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-        // materialSkinManager.ColorScheme = new ColorScheme(
-        //            Primary.Cyan700,
-        //            Primary.Cyan900,
-        //            Primary.Cyan500,
-        //            Accent.DeepOrange200,
-        //            TextShade.WHITE);
-        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
+        life_assistant.Classes.MaterialThemeManager materialThemeManager = new();
         materialThemeManager.setDefaultTheme(materialSkinManager);
 
         _filters = new()
@@ -414,5 +407,11 @@ public partial class MainForm : MaterialForm
             MessageBoxIcon.Warning);
             }
         }
+    }
+    private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
+        life_assistant.MainForm main = new life_assistant.MainForm();
+        this.Hide();
+        main.ShowDialog();
+        this.Close();
     }
 }
