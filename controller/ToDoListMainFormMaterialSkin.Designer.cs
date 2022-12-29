@@ -50,6 +50,7 @@ partial class ToDoListMainFormMaterialSkin
             this.textbar.Text = "";
             this.textbar.TrailingIcon = null;
             this.textbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textbar_KeyDown);
+            this.textbar.Hint = "add new task";
             // 
             // ToDoListMainFormMaterialSkin
             // 
