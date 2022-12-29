@@ -35,5 +35,9 @@ public partial class MainForm : MaterialForm
         main.ShowDialog();
     }
 
-
+    private void buttonToDoList_Click(object sender, EventArgs e)
+    {
+        ToDoListMainForm main = new ToDoListMainForm();
+        main.ShowDialog();
+    }
 }
