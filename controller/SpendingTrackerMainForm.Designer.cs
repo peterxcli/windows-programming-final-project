@@ -1,6 +1,6 @@
-﻿namespace spending_tracker;
+﻿namespace life_assistant.controller;
 
-partial class MainForm
+partial class SpendingTrackerMainForm
 {
     /// <summary>
     ///  Required designer variable.

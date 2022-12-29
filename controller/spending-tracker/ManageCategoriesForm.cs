@@ -1,25 +1,26 @@
 ﻿using System;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using life_assistant.model;
 
-namespace spending_tracker.Forms;
+namespace life_assistant.controller.spending_tracker;
 
 
 public partial class ManageCategoriesForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-    private Classes.ExpenseManager _manager;
+    private ExpenseManagerModel expenseManagerModel;
     private bool _isEditingCategory = false;
     private string _categoryEditing = "";
-    public ManageCategoriesForm(Classes.ExpenseManager manager)
+    public ManageCategoriesForm(ExpenseManagerModel _expenseManagerModel)
     {
         InitializeComponent();
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
-        _manager = manager;
+        this.expenseManagerModel = _expenseManagerModel;
     }
     private void ResetAllControls()
     {
@@ -38,7 +39,7 @@ public partial class ManageCategoriesForm : MaterialForm
     private void PopulateListBoxCategories()
     {
         listBoxCategories.Items.Clear();
-        foreach (var item in _manager.Categories)
+        foreach (var item in expenseManagerModel.Categories)
         {
             if (item.Value == "No category")
                 continue;
@@ -64,7 +65,7 @@ public partial class ManageCategoriesForm : MaterialForm
             return;
         }
 
-        if (_manager.CategoryNameExists(userInput))
+        if (expenseManagerModel.CategoryNameExists(userInput))
         {
             MessageBox.Show("Category name is already in use.",
                 "Error",
@@ -76,12 +77,12 @@ public partial class ManageCategoriesForm : MaterialForm
 
         if (_isEditingCategory)
         {
-            _manager.TryGetCategoryId(_categoryEditing, out Guid categoryId);
-            _manager.RenameCategory(categoryId, textBoxNewCategory.Text);
+            expenseManagerModel.TryGetCategoryId(_categoryEditing, out Guid categoryId);
+            expenseManagerModel.RenameCategory(categoryId, textBoxNewCategory.Text);
         }
         else
         {
-            _manager.AddCategory(userInput);
+            expenseManagerModel.AddCategory(userInput);
         }
         ResetAllControls();
         PopulateListBoxCategories();
@@ -107,8 +108,8 @@ public partial class ManageCategoriesForm : MaterialForm
         if (DialogResult.Yes == MessageBox.Show($"Are you sure that you want to delete {listBoxCategories.SelectedItem}?",
             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
         {
-            _manager.TryGetCategoryId(listBoxCategories.SelectedItem.ToString(), out Guid categoryId);
-            _manager.RemoveCategory(categoryId);
+            expenseManagerModel.TryGetCategoryId(listBoxCategories.SelectedItem.ToString(), out Guid categoryId);
+            expenseManagerModel.RemoveCategory(categoryId);
             PopulateListBoxCategories();
         }
     }
