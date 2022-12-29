@@ -1,6 +1,6 @@
 using MaterialSkin;
 
-namespace life_assistant.Classes;
+namespace life_assistant;
 
 public class MaterialThemeManager
 {

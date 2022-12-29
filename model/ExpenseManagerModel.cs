@@ -1,20 +1,19 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
-using spending_tracker.Schemas;
 using System.IO;
 
-namespace spending_tracker.Classes;
+namespace life_assistant.model;
 
 /// <summary>
 /// Provides methods and properties to manipulate and access Entries,
 /// methods for saving and loading data, validation and more.
 /// </summary>
-public class ExpenseManager
+public class ExpenseManagerModel
 {
     #region Fields
     public readonly string DefaultDataFilePath = @"./data/spending-manager-data.json";
     private string _workingDataFilePath;
-    private List<Entry> _entries = new();
+    private List<EntrySchema> _entries = new();
     private Dictionary<Guid, string> _categories = new()
         {
             {Guid.Empty, "No category"},
@@ -27,7 +26,7 @@ public class ExpenseManager
     /// Provides a copy of the Entries stored in this object.
     /// </summary>
     [JsonInclude]
-    public List<Entry> Entries { get => new(_entries); }
+    public List<EntrySchema> Entries { get => new(_entries); }
     /// <summary>
     /// Provides a copy of the Categories stored in the Expense Manager object.
     /// </summary>
@@ -50,7 +49,7 @@ public class ExpenseManager
     #endregion
 
     #region Constructors
-    public ExpenseManager()
+    public ExpenseManagerModel()
     {
         _workingDataFilePath = DefaultDataFilePath;
     }
@@ -96,7 +95,7 @@ public class ExpenseManager
 
     public void SaveData()
     {
-        string data = JsonSerializer.Serialize<ExpenseManager>(this,
+        string data = JsonSerializer.Serialize<ExpenseManagerModel>(this,
             new JsonSerializerOptions { WriteIndented = true }
             );
         
@@ -110,7 +109,7 @@ public class ExpenseManager
 
     public void SaveDataTo(string path)
     {
-        string data = JsonSerializer.Serialize<ExpenseManager>(this,
+        string data = JsonSerializer.Serialize<ExpenseManagerModel>(this,
             new JsonSerializerOptions { WriteIndented = true }
             );
 
@@ -126,12 +125,12 @@ public class ExpenseManager
         using StreamReader sr = new(_workingDataFilePath);
         string json = sr.ReadToEnd();
 
-        ExpenseManagerDataSchema? data = JsonSerializer.Deserialize<ExpenseManagerDataSchema>(json);
+        ExpenseManagerSchema? data = JsonSerializer.Deserialize<ExpenseManagerSchema>(json);
         if (data == null || data.Entries == null || data.Categories == null || data.CurrencySign == null)
         {
             return false;
         }
-        _entries = new List<Entry>(data.Entries);
+        _entries = new List<EntrySchema>(data.Entries);
         _categories = new Dictionary<Guid, string>(data.Categories);
         CurrencySign = data.CurrencySign;
         return true;
@@ -145,18 +144,18 @@ public class ExpenseManager
         using StreamReader sr = new(path);
         string json = sr.ReadToEnd();
 
-        ExpenseManagerDataSchema? data = JsonSerializer.Deserialize<ExpenseManagerDataSchema>(json);
+        ExpenseManagerSchema? data = JsonSerializer.Deserialize<ExpenseManagerSchema>(json);
         if (data == null || data.Entries == null || data.Categories == null || data.CurrencySign == null)
         {
             return false;
         }
-        _entries = new List<Entry>(data.Entries);
+        _entries = new List<EntrySchema>(data.Entries);
         _categories = new Dictionary<Guid, string>(data.Categories);
         CurrencySign = data.CurrencySign;
         return true;
     }
 
-    public void AddEntry(Entry e)
+    public void AddEntry(EntrySchema e)
     {
         if (!_categories.ContainsKey(e.CategoryId))
             throw new ArgumentException("Category ID is not registered within the Expense Manager instance.");
@@ -165,7 +164,7 @@ public class ExpenseManager
 
     public Guid AddNewEntry(string title, string description, decimal value)
     {
-        Entry e = new(title, description, value);
+        EntrySchema e = new(title, description, value);
         AddEntry(e);
         return e.Id;
     }
@@ -179,7 +178,7 @@ public class ExpenseManager
         return categoryId;
     }
 
-    public bool TryFindEntry(Guid id, out Entry e)
+    public bool TryFindEntry(Guid id, out EntrySchema e)
     {
         e = null;
         foreach (var entry in _entries)
@@ -195,7 +194,7 @@ public class ExpenseManager
 
     public bool RemoveEntry(Guid id)
     {
-        TryFindEntry(id, out Entry e);
+        TryFindEntry(id, out EntrySchema e);
         return _entries.Remove(e);
     }
 

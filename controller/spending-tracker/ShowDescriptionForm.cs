@@ -1,21 +1,22 @@
 ﻿using MaterialSkin.Controls;
 using MaterialSkin;
+using life_assistant.model;
 
-namespace spending_tracker.Forms;
+namespace life_assistant.controller.spending_tracker;
 
 public partial class ShowDescriptionForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     string _description;
-    public ShowDescriptionForm(Classes.ExpenseManager manager, Guid id)
+    public ShowDescriptionForm(ExpenseManagerModel _expenseManagerModel, Guid id)
     {
-        manager.TryFindEntry(id, out Classes.Entry entry);
+        _expenseManagerModel.TryFindEntry(id, out EntrySchema entry);
         _description = entry.Description;
         InitializeComponent();
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
     }
 

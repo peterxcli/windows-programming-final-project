@@ -1,24 +1,25 @@
 ﻿using MaterialSkin.Controls;
 using MaterialSkin;
+using life_assistant.model;
 
-namespace spending_tracker.Forms;
+namespace life_assistant.controller.spending_tracker;
 
 public partial class EditExistingEntryForm : MaterialForm
 {
-    Classes.ExpenseManager _manager;
+    ExpenseManagerModel expenseManagerModel;
     Guid _entryId;
-    Classes.Entry _editEntry;
+    EntrySchema _editEntry;
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-    public EditExistingEntryForm(Classes.ExpenseManager manager, Guid entryId)
+    public EditExistingEntryForm(ExpenseManagerModel _expenseManagerModel, Guid entryId)
     {
-        _manager = manager;
+        expenseManagerModel = _expenseManagerModel;
         _entryId = entryId;
-        _manager.TryFindEntry(_entryId, out _editEntry);
+        expenseManagerModel.TryFindEntry(_entryId, out _editEntry);
         InitializeComponent();
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
     }
 
@@ -60,18 +61,18 @@ public partial class EditExistingEntryForm : MaterialForm
         }
 
         Guid categoryId;
-        _manager.TryGetCategoryId(comboBoxCategories.SelectedItem.ToString(), out categoryId);
-        Classes.Entry entry = new(_editEntry.Id, _editEntry.CreatedAt, title, description, parsedValue, categoryId);
-        _manager.RemoveEntry(_editEntry.Id);
-        _manager.AddEntry(entry);
+        expenseManagerModel.TryGetCategoryId(comboBoxCategories.SelectedItem.ToString(), out categoryId);
+        EntrySchema entry = new(_editEntry.Id, _editEntry.CreatedAt, title, description, parsedValue, categoryId);
+        expenseManagerModel.RemoveEntry(_editEntry.Id);
+        expenseManagerModel.AddEntry(entry);
         Close();
     }
 
     private void EditExistingEntryForm_Load(object sender, EventArgs e)
     {
         // Initially populate the comboBoxCategories
-        comboBoxCategories.Items.AddRange(_manager.Categories.Values.ToArray());
-        _manager.TryGetCategoryName(_editEntry.CategoryId, out string categoryName);
+        comboBoxCategories.Items.AddRange(expenseManagerModel.Categories.Values.ToArray());
+        expenseManagerModel.TryGetCategoryName(_editEntry.CategoryId, out string categoryName);
         for (int i = 0; i < comboBoxCategories.Items.Count; i++)
         {
             if (comboBoxCategories.Items[i].ToString() == categoryName)

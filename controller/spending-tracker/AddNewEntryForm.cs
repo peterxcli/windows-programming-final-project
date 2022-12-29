@@ -1,15 +1,16 @@
 ﻿using MaterialSkin.Controls;
 using MaterialSkin;
+using life_assistant.model;
 
-namespace spending_tracker.Forms;
+namespace life_assistant.controller.spending_tracker;
 
 public partial class AddNewEntryForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-    Classes.ExpenseManager _manager;
-    public AddNewEntryForm(Classes.ExpenseManager manager)
+    ExpenseManagerModel expenseManagerModel;
+    public AddNewEntryForm(ExpenseManagerModel _modelManagerModel)
     {
-        _manager = manager;
+        expenseManagerModel = _modelManagerModel;
         InitializeComponent();
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
@@ -21,14 +22,14 @@ public partial class AddNewEntryForm : MaterialForm
         //            Primary.Cyan500,
         //            Accent.DeepOrange200,
         //            TextShade.WHITE);
-        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
     }
 
     private void AddNewEntryForm_Load(object sender, EventArgs e)
     {
         // Initially populate the comboBoxCategories
-        comboBoxCategories.Items.AddRange(_manager.Categories.Values.ToArray());
+        comboBoxCategories.Items.AddRange(expenseManagerModel.Categories.Values.ToArray());
         comboBoxCategories.SelectedIndex = 0;
     }
 
@@ -70,11 +71,11 @@ public partial class AddNewEntryForm : MaterialForm
         }
 
         Guid categoryId;
-        _manager.TryGetCategoryId(comboBoxCategories.SelectedItem.ToString(), out categoryId);
-        Classes.Entry entry = new(title, description, parsedValue);
+        expenseManagerModel.TryGetCategoryId(comboBoxCategories.SelectedItem.ToString(), out categoryId);
+        EntrySchema entry = new(title, description, parsedValue);
         entry.CategoryId = categoryId;
         entry.IsIncome = radioButtonIncome.Checked;
-        _manager.AddEntry(entry);
+        expenseManagerModel.AddEntry(entry);
         Close();
     }
 }

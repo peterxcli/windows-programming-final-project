@@ -1,27 +1,28 @@
 ﻿using System.Xml.Xsl;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using life_assistant.model;
 
-namespace spending_tracker.Forms;
+namespace life_assistant.controller.spending_tracker;
 
 public partial class OptionsForm : MaterialForm
 {
-    private Classes.ExpenseManager _manager;
+    private ExpenseManagerModel expenseManagerModel;
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-    public OptionsForm(Classes.ExpenseManager manager)
+    public OptionsForm(ExpenseManagerModel _expenseManagerModel)
     {
         InitializeComponent();
         materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
         materialSkinManager.EnforceBackcolorOnAllComponents = true;
         materialSkinManager.AddFormToManage(this);
-        life_assistant.Classes.MaterialThemeManager materialThemeManager = new life_assistant.Classes.MaterialThemeManager();
+        MaterialThemeManager materialThemeManager = new MaterialThemeManager();
         materialThemeManager.setDefaultTheme(materialSkinManager);
-        _manager = manager;
+        expenseManagerModel = _expenseManagerModel;
     }
 
     private void OptionsForm_Load(object sender, EventArgs e)
     {
-        textBoxCurrency.Text = _manager.CurrencySign;
+        textBoxCurrency.Text = expenseManagerModel.CurrencySign;
     }
     private void buttonApply_Click(object sender, EventArgs e)
     {
@@ -46,7 +47,7 @@ public partial class OptionsForm : MaterialForm
             return;
         }
 
-        _manager.CurrencySign = textBoxCurrency.Text;
+        expenseManagerModel.CurrencySign = textBoxCurrency.Text;
         this.Close();
     }
 
