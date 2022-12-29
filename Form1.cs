@@ -44,6 +44,16 @@ public partial class Form1 : Form
         sr.Close();
     }
 
+    void UpdateData()
+    {
+        StreamWriter sw = new StreamWriter(DataFilePath);
+        for (int i = 0; i < ThingsCnt; i++)
+        {
+            sw.WriteLine(things[i].Text);
+        }
+        sw.Close();
+    }
+
     private void insert(object sender, EventArgs e)
     {
         string thing_name = textbar.Text;
@@ -60,12 +70,7 @@ public partial class Form1 : Form
         ThingsCnt++;
         CntBar.Text = ThingsCnt.ToString();
 
-        StreamWriter sw= new StreamWriter(DataFilePath);
-        for(int i=0;i<ThingsCnt;i++)
-        {
-            sw.WriteLine(things[i].Text);
-        }
-        sw.Close();
+        UpdateData();
     }
 
     private void textbar_KeyDown(object sender, KeyEventArgs e)
@@ -93,6 +98,7 @@ public partial class Form1 : Form
         things[--ThingsCnt].Visible = false;
         CntBar.Text = ThingsCnt.ToString();
 
+        UpdateData();
     }
 
 }
