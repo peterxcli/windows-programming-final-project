@@ -1,11 +1,11 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace spending_tracker.Classes;
+namespace life_assistant.model;
 
 /// <summary>
 /// Represents a single income / expense entry.
 /// </summary>
-public class Entry
+public class EntrySchema
 {
     #region Properties
     public Guid Id { get; private set; }
@@ -22,7 +22,7 @@ public class Entry
     /// <summary>
     /// Creates a new Entry object.
     /// </summary>
-    public Entry(string title = "", string description = "", decimal value = 0m)
+    public EntrySchema(string title = "", string description = "", decimal value = 0m)
     {
         Id = Guid.NewGuid();
         CreatedAt = DateTime.UtcNow;
@@ -35,7 +35,7 @@ public class Entry
     /// Creates an Entry object based on previously used data.
     /// </summary>
     [JsonConstructor]
-    public Entry(Guid id, DateTime createdAt, string title, string description, decimal value, Guid categoryId)
+    public EntrySchema(Guid id, DateTime createdAt, string title, string description, decimal value, Guid categoryId)
     {
         Id = id;
         CreatedAt = createdAt;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
-using life_assistant.Classes;
+using life_assistant.controller;
 
 namespace life_assistant;
 
@@ -31,7 +31,7 @@ public partial class MainForm : MaterialForm
 
     private void buttonSpendingTracker_Click(object sender, EventArgs e)
     {
-        spending_tracker.MainForm main = new spending_tracker.MainForm();
+        SpendingTrackerMainForm main = new SpendingTrackerMainForm();
         main.ShowDialog();
     }
 

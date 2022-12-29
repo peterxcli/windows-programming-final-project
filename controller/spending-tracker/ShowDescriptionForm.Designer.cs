@@ -1,4 +1,4 @@
-﻿namespace spending_tracker.Forms;
+﻿namespace life_assistant.controller.spending_tracker;
 
 partial class ShowDescriptionForm
 {
