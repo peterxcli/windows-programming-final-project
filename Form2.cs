@@ -75,7 +75,7 @@ namespace life_assistant
             }
             if (find)
             {
-                if (MessageBox.Show("Do you want do remove " + target, "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Do you want do remove " + target + "?", "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     form1.shop.Remove(target);
                     Update();
