@@ -31,7 +31,6 @@ partial class Form1
             this.label1 = new System.Windows.Forms.Label();
             this.CntBar = new System.Windows.Forms.Label();
             this.textbar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +48,7 @@ partial class Form1
             // 
             this.CntBar.AutoSize = true;
             this.CntBar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CntBar.Location = new System.Drawing.Point(640, 18);
+            this.CntBar.Location = new System.Drawing.Point(625, 18);
             this.CntBar.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.CntBar.Name = "CntBar";
             this.CntBar.Size = new System.Drawing.Size(82, 91);
@@ -58,35 +57,27 @@ partial class Form1
             // 
             // textbar
             // 
+            this.textbar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textbar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textbar.Location = new System.Drawing.Point(82, 938);
+            this.textbar.Location = new System.Drawing.Point(0, 970);
             this.textbar.Name = "textbar";
-            this.textbar.Size = new System.Drawing.Size(537, 62);
+            this.textbar.Size = new System.Drawing.Size(802, 62);
             this.textbar.TabIndex = 1;
             this.textbar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textbar_KeyDown);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(625, 938);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 66);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 1012);
-            this.Controls.Add(this.button1);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(802, 1032);
             this.Controls.Add(this.textbar);
             this.Controls.Add(this.CntBar);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "To Do List";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,5 +89,4 @@ partial class Form1
     private Label label1;
     private Label CntBar;
     private TextBox textbar;
-    private Button button1;
 }
