@@ -32,13 +32,31 @@ namespace life_assistant
             Update();
         }
 
+        private void textbar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+                button1_Click(sender, e);
+                textbar.Focus();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string target = textbar.Text;
             textbar.Text = "";
+            if (target != "")
+            {
 
-            form1.shop.Add(target);
-            Update();
+                form1.shop.Add(target);
+                Update();
+            }
+            else
+            {
+                MessageBox.Show("Can't be empty!");
+            }
+            listBox1.TopIndex = listBox1.Items.Count - 1;
             textbar.Focus();
         }
 
@@ -46,6 +64,7 @@ namespace life_assistant
         {
             string target=textbar.Text;
             textbar.Text = "";
+            
             bool find = false;
             foreach (var i in form1.shop)
             {
@@ -72,10 +91,20 @@ namespace life_assistant
                 }
                 else
                 {
-                    MessageBox.Show("Please enter valid name");
+                    if (target == "")
+                    {
+                        MessageBox.Show("Can't be empty!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter valid name");
+                    }
+                    
                 }
                 
             }
+
+            listBox1.TopIndex = listBox1.Items.Count - 1;
             textbar.Focus();
         }
     }

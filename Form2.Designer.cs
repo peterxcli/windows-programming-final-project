@@ -41,6 +41,7 @@
             this.textbar.Name = "textbar";
             this.textbar.Size = new System.Drawing.Size(564, 48);
             this.textbar.TabIndex = 0;
+            this.textbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textbar_KeyDown);
             // 
             // button1
             // 
