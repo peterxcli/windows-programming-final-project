@@ -40,4 +40,10 @@ public partial class MainForm : MaterialForm
         ToDoListMainForm main = new ToDoListMainForm();
         main.ShowDialog();
     }
+
+    private void materialButton1_Click(object sender, EventArgs e)
+    {
+        ToDoListMainFormMaterialSkin main = new ToDoListMainFormMaterialSkin();
+        main.ShowDialog();
+    }
 }

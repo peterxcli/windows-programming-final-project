@@ -32,6 +32,7 @@
             this.buttonToDoList = new MaterialSkin.Controls.MaterialButton();
             this.textboxUsername = new MaterialSkin.Controls.MaterialTextBox();
             this.textBoxPassword = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // buttonSpendingTracker
@@ -93,6 +94,7 @@
             this.textboxUsername.TabIndex = 2;
             this.textboxUsername.Text = "";
             this.textboxUsername.TrailingIcon = null;
+            this.textboxUsername.Visible = false;
             // 
             // textBoxPassword
             // 
@@ -111,12 +113,35 @@
             this.textBoxPassword.TabIndex = 3;
             this.textBoxPassword.Text = "";
             this.textBoxPassword.TrailingIcon = null;
+            this.textBoxPassword.Visible = false;
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSize = false;
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(134, 448);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(161, 62);
+            this.materialButton1.TabIndex = 4;
+            this.materialButton1.Text = "To do List(MaterialSkin)";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 596);
+            this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textboxUsername);
             this.Controls.Add(this.buttonToDoList);
@@ -133,5 +158,6 @@
         private MaterialSkin.Controls.MaterialButton buttonToDoList;
         private MaterialSkin.Controls.MaterialTextBox textboxUsername;
         private MaterialSkin.Controls.MaterialTextBox textBoxPassword;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

@@ -2,15 +2,20 @@ using MaterialSkin.Controls;
 
 namespace life_assistant.controller;
 
-public partial class ToDoListMainForm : Form
+public partial class ToDoListMainFormMaterialSkin : MaterialForm
 {
-    RadioButton[] things=new RadioButton[100];
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
+    MaterialRadioButton[] things=new MaterialRadioButton[100];
     int ThingsCnt=0;
     string DataFilePath = "./data/to-do-list-data.json";
-    public ToDoListMainForm()
+    public ToDoListMainFormMaterialSkin()
     {
         InitializeComponent();
-        
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        MaterialThemeManager materialThemeManager = new();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
 
         if (!Directory.Exists(Path.GetDirectoryName(DataFilePath)))
         {
@@ -18,7 +23,7 @@ public partial class ToDoListMainForm : Form
         }
         for (int i = 0; i < 100; i++)
         {
-            things[i]=new RadioButton();
+            things[i]=new MaterialRadioButton();
             things[i].SetBounds(100,150+80*i,80, 70);
             things[i].AutoSize= true;
             things[i].Font = new Font("Microsoft JhengHei UI", 20F, FontStyle.Bold);
@@ -37,7 +42,6 @@ public partial class ToDoListMainForm : Form
                 things[ThingsCnt].Visible = true;
 
                 ThingsCnt++;
-                CntBar.Text = ThingsCnt.ToString();
                 thing_name = sr.ReadLine();
             }
             sr.Close();
@@ -68,7 +72,6 @@ public partial class ToDoListMainForm : Form
         things[ThingsCnt].Visible = true;
 
         ThingsCnt++;
-        CntBar.Text = ThingsCnt.ToString();
 
         UpdateData();
     }
@@ -84,7 +87,7 @@ public partial class ToDoListMainForm : Form
 
     private void radioButton_CheckedChanged(object sender, EventArgs e)
     {
-        RadioButton RadBtn=(RadioButton)sender;
+        MaterialRadioButton RadBtn=(MaterialRadioButton)sender;
         if (RadBtn.Checked == false) return;
         String target = RadBtn.Text;
         int TargetIndex = 0;
@@ -96,13 +99,7 @@ public partial class ToDoListMainForm : Form
             things[i].Text = things[i + 1].Text;
         }
         things[--ThingsCnt].Visible = false;
-        CntBar.Text = ThingsCnt.ToString();
 
         UpdateData();
-    }
-
-    private void ToDoListMainForm_Load(object sender, EventArgs e)
-    {
-
     }
 }
