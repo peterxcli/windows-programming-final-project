@@ -46,4 +46,10 @@ public partial class MainForm : MaterialForm
         ToDoListMainFormMaterialSkin main = new ToDoListMainFormMaterialSkin();
         main.ShowDialog();
     }
+
+    private void buttonRandomLunchHelper_Click(object sender, EventArgs e)
+    {
+        RandomLunchHelperMainForm main = new RandomLunchHelperMainForm();
+        main.ShowDialog();
+    }
 }
