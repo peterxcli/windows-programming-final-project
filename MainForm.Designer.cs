@@ -34,6 +34,8 @@
             this.textBoxPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.buttonRandomLunchHelper = new MaterialSkin.Controls.MaterialButton();
+            this.buttonExerciseRecorder = new MaterialSkin.Controls.MaterialButton();
+            this.buttonStudySchedule = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // buttonSpendingTracker
@@ -87,7 +89,7 @@
             this.textboxUsername.Hint = "username";
             this.textboxUsername.LeadingIcon = null;
             this.textboxUsername.Location = new System.Drawing.Point(96, 77);
-            this.textboxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.textboxUsername.MaxLength = 50;
             this.textboxUsername.MouseState = MaterialSkin.MouseState.OUT;
             this.textboxUsername.Multiline = false;
@@ -107,7 +109,7 @@
             this.textBoxPassword.Hint = "password";
             this.textBoxPassword.LeadingIcon = null;
             this.textBoxPassword.Location = new System.Drawing.Point(395, 77);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassword.MaxLength = 50;
             this.textBoxPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxPassword.Multiline = false;
@@ -160,18 +162,60 @@
             this.buttonRandomLunchHelper.UseVisualStyleBackColor = true;
             this.buttonRandomLunchHelper.Click += new System.EventHandler(this.buttonRandomLunchHelper_Click);
             // 
+            // buttonExerciseRecorder
+            // 
+            this.buttonExerciseRecorder.AutoSize = false;
+            this.buttonExerciseRecorder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonExerciseRecorder.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonExerciseRecorder.Depth = 0;
+            this.buttonExerciseRecorder.HighEmphasis = true;
+            this.buttonExerciseRecorder.Icon = null;
+            this.buttonExerciseRecorder.Location = new System.Drawing.Point(403, 274);
+            this.buttonExerciseRecorder.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonExerciseRecorder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonExerciseRecorder.Name = "buttonExerciseRecorder";
+            this.buttonExerciseRecorder.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonExerciseRecorder.Size = new System.Drawing.Size(171, 49);
+            this.buttonExerciseRecorder.TabIndex = 6;
+            this.buttonExerciseRecorder.Text = "exercise recorder";
+            this.buttonExerciseRecorder.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonExerciseRecorder.UseAccentColor = false;
+            this.buttonExerciseRecorder.UseVisualStyleBackColor = true;
+            // 
+            // buttonStudySchedule
+            // 
+            this.buttonStudySchedule.AutoSize = false;
+            this.buttonStudySchedule.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonStudySchedule.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonStudySchedule.Depth = 0;
+            this.buttonStudySchedule.HighEmphasis = true;
+            this.buttonStudySchedule.Icon = null;
+            this.buttonStudySchedule.Location = new System.Drawing.Point(403, 354);
+            this.buttonStudySchedule.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonStudySchedule.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonStudySchedule.Name = "buttonStudySchedule";
+            this.buttonStudySchedule.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonStudySchedule.Size = new System.Drawing.Size(171, 49);
+            this.buttonStudySchedule.TabIndex = 7;
+            this.buttonStudySchedule.Text = "study schedule";
+            this.buttonStudySchedule.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonStudySchedule.UseAccentColor = false;
+            this.buttonStudySchedule.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 471);
+            this.Controls.Add(this.buttonStudySchedule);
+            this.Controls.Add(this.buttonExerciseRecorder);
             this.Controls.Add(this.buttonRandomLunchHelper);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textboxUsername);
             this.Controls.Add(this.buttonToDoList);
             this.Controls.Add(this.buttonSpendingTracker);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(2, 51, 2, 2);
             this.Text = "Menu";
@@ -187,5 +231,7 @@
         private MaterialSkin.Controls.MaterialTextBox textBoxPassword;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton buttonRandomLunchHelper;
+        private MaterialSkin.Controls.MaterialButton buttonExerciseRecorder;
+        private MaterialSkin.Controls.MaterialButton buttonStudySchedule;
     }
 }

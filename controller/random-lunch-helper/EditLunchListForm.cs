@@ -8,15 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using life_assistant.controller;
+using MaterialSkin.Controls;
 
 namespace life_assistant.controller.spending_tracker;
 
-public partial class EditLunchListForm : Form
+public partial class EditLunchListForm : MaterialForm
 {
+    readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     RandomLunchHelperMainForm randomLunchHelperMainForm;
     public EditLunchListForm(RandomLunchHelperMainForm father)
     {
         InitializeComponent();
+        materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+        materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        materialSkinManager.AddFormToManage(this);
+        MaterialThemeManager materialThemeManager = new();
+        materialThemeManager.setDefaultTheme(materialSkinManager);
         randomLunchHelperMainForm = father;
     }
 
@@ -25,7 +32,7 @@ public partial class EditLunchListForm : Form
         listBox1.Items.Clear();
         foreach (var item in randomLunchHelperMainForm.shop)
         {
-            listBox1.Items.Add(item);
+            listBox1.Items.Add(new MaterialSkin.MaterialListBoxItem(item));
         }
     }
     private void Form2_Load(object sender, EventArgs e)
@@ -57,7 +64,7 @@ public partial class EditLunchListForm : Form
         {
             MessageBox.Show("Can't be empty!");
         }
-        listBox1.TopIndex = listBox1.Items.Count - 1;
+        // listBox1.TopIndex = listBox1.Items.Count - 1;
         textbar.Focus();
     }
 
@@ -107,7 +114,7 @@ public partial class EditLunchListForm : Form
 
         }
 
-        listBox1.TopIndex = listBox1.Items.Count - 1;
+        // listBox1.TopIndex = listBox1.Items.Count - 1;
         textbar.Focus();
     }
 }
