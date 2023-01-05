@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using life_assistant.controller;
 using MaterialSkin.Controls;
 
-namespace life_assistant.controller.spending_tracker;
+namespace life_assistant.controller.random_lunch_helper;
 
 public partial class EditLunchListForm : MaterialForm
 {

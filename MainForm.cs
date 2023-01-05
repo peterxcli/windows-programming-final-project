@@ -52,4 +52,15 @@ public partial class MainForm : MaterialForm
         RandomLunchHelperMainForm main = new RandomLunchHelperMainForm();
         main.ShowDialog();
     }
+
+    private void buttonExerciseRecorder_Click(object sender, EventArgs e)
+    {
+        exerciseRecorderMainForm main = new exerciseRecorderMainForm();
+        main.ShowDialog();
+    }
+
+    private void buttonStudySchedule_Click(object sender, EventArgs e)
+    {
+
+    }
 }

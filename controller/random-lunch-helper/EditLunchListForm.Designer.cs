@@ -1,4 +1,4 @@
-﻿namespace life_assistant.controller.spending_tracker;
+﻿namespace life_assistant.controller.random_lunch_helper;
 
 partial class EditLunchListForm
 {

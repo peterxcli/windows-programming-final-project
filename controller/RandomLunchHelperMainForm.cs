@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using life_assistant.controller.spending_tracker;
+using life_assistant.controller.random_lunch_helper;
 using MaterialSkin.Controls;
 
 namespace life_assistant.controller;
@@ -10,7 +10,7 @@ namespace life_assistant.controller;
 public partial class RandomLunchHelperMainForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-    public List<String> shop = new List<String>() { "McDonald's","KFC","¤@¤¤¤M«dÄÑ","¤p´U«Î", "¦×¦×±±", "123ª£¶º" , "»õ­ô¤û¦×´ö", "¤p½²¶§¬KÄÑ", "¥x«n¶}·½ªÀ­»Âû±Æ", "ªü°]¤û¦×´ö", "°§Éd_¤é¦¡Éd¶º¡B¬µª«", "§ü¤WÁç¿N", "¥Ã¦N¤û¦×´ö", "ÛpªÛ­»º±¨ý", "Ä±¤Y©ÔÄÑ", "¤û§BÄÑ©±", "¤E´ö«Î©ÔÄÑ", "¤p¥j¤Ú ¤â§@º~³ù", "­»­»¤p¦Y", "­D¶ý¶ýª£¶º", "¥ÖìÀ¥ý¥Í", "¤jÂæ¤tÄÑÀ]", "²KºÖÄÑÀ]", "²Ä¤G¸J Áç¿N·NÄÑ", "¤@ÂI¤Â¥]", "³¢¶ýºÒ¯N¤T©úªv", "¤C®ü³½¥Ö", "Ä~¥ú­»­»Âû", "¤­ÂA¯ÅÁçª«±M½æ", "³b¤H©ÔÄÑ", "«á¥Ò¹Å¸qÂû¦×¶º", };
+    public List<String> shop = new List<String>() { "McDonald's","KFC","ï¿½@ï¿½ï¿½ï¿½Mï¿½dï¿½ï¿½","ï¿½pï¿½Uï¿½ï¿½", "ï¿½×¦×±ï¿½", "123ï¿½ï¿½ï¿½ï¿½" , "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´ï¿½", "ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½ï¿½", "ï¿½xï¿½nï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½×´ï¿½", "ï¿½ï¿½ï¿½d_ï¿½é¦¡ï¿½dï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½Wï¿½ï¿½N", "ï¿½Ã¦Nï¿½ï¿½ï¿½×´ï¿½", "ï¿½pï¿½Û­ï¿½ï¿½ï¿½ï¿½ï¿½", "Ä±ï¿½Yï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½Bï¿½Ñ©ï¿½", "ï¿½Eï¿½ï¿½ï¿½Î©ï¿½ï¿½ï¿½", "ï¿½pï¿½jï¿½ï¿½ ï¿½ï¿½@ï¿½~ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Y", "ï¿½Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½jï¿½ï¿½tï¿½ï¿½ï¿½]", "ï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½]", "ï¿½Ä¤Gï¿½J ï¿½ï¿½Nï¿½Nï¿½ï¿½", "ï¿½@ï¿½Iï¿½Â¥]", "ï¿½ï¿½ï¿½ï¿½ï¿½Ò¯Nï¿½Tï¿½ï¿½ï¿½v", "ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½çª«ï¿½Mï¿½ï¿½", "ï¿½bï¿½Hï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ò¹Å¸qï¿½ï¿½ï¿½×¶ï¿½", };
     public RandomLunchHelperMainForm()
     {
         InitializeComponent();
