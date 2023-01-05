@@ -11,7 +11,7 @@ namespace life_assistant.model;
 public class ExpenseManagerModel
 {
     #region Fields
-    public readonly string DefaultDataFilePath = @"./data/spending-manager-data.json";
+    public readonly string DefaultDataFilePath = @"./Data/Spending-Manager-Data.json";
     private string _workingDataFilePath;
     private List<EntrySchema> _entries = new();
     private Dictionary<Guid, string> _categories = new()

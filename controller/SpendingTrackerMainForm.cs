@@ -340,7 +340,7 @@ public partial class SpendingTrackerMainForm : MaterialForm
         {
             InitialDirectory = Environment.CurrentDirectory,
             Filter = "csv files (*.csv) | *.csv",
-            FileName = "spending-manager-export.csv",
+            FileName = "Spending-Manager-Export.csv",
             OverwritePrompt = true,
             AddExtension = true,
             DefaultExt = ".csv",
