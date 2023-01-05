@@ -61,6 +61,7 @@ public partial class MainForm : MaterialForm
 
     private void buttonStudySchedule_Click(object sender, EventArgs e)
     {
-
+        StudyScheduleMainForm main = new StudyScheduleMainForm();
+        main.ShowDialog();
     }
 }
