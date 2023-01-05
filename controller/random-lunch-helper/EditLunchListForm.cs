@@ -29,11 +29,16 @@ public partial class EditLunchListForm : MaterialForm
 
     void Update()
     {
+        string DataFilePath = "./Data/RandomLunchHelper.json";
+        StreamWriter sw = new StreamWriter(DataFilePath);
+
         listBox1.Items.Clear();
         foreach (var item in randomLunchHelperMainForm.shop)
         {
             listBox1.Items.Add(new MaterialSkin.MaterialListBoxItem(item));
+            sw.WriteLine(item);
         }
+        sw.Close();
     }
     private void Form2_Load(object sender, EventArgs e)
     {
@@ -94,7 +99,7 @@ public partial class EditLunchListForm : MaterialForm
         {
             if (listBox1.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Do you want do remove " + listBox1.SelectedItem, "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Do you want do remove " + listBox1.SelectedItem.Text, "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     listBox1.Items.Remove(listBox1.SelectedItem);
                 }
