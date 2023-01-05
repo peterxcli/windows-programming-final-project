@@ -17,7 +17,7 @@ public partial class exerciseRecorderMainForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     Add_form form1 = new Add_form();
-    string DataFilePath = "./data/exercise-recorder-listview.json";
+    string DataFilePath = "./Data/Exercise-Recorder-Listview.json";
     int last_day = 0;
     int number_of_items = 0;
     int have_done = 0;

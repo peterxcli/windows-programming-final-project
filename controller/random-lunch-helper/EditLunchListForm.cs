@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using life_assistant.controller;
@@ -16,6 +17,8 @@ public partial class EditLunchListForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     RandomLunchHelperMainForm randomLunchHelperMainForm;
+    string DataFilePath = "./Data/Random-Lunch-Helper.json";
+
     public EditLunchListForm(RandomLunchHelperMainForm father)
     {
         InitializeComponent();
@@ -34,6 +37,11 @@ public partial class EditLunchListForm : MaterialForm
         {
             listBox1.Items.Add(new MaterialSkin.MaterialListBoxItem(item));
         }
+
+        StreamWriter sw = new StreamWriter(DataFilePath);
+        sw.WriteLine(JsonSerializer.Serialize(randomLunchHelperMainForm.shop));
+        sw.Close();
+        
     }
     private void Form2_Load(object sender, EventArgs e)
     {
@@ -94,7 +102,7 @@ public partial class EditLunchListForm : MaterialForm
         {
             if (listBox1.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Do you want do remove " + listBox1.SelectedItem, "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Do you want do remove " + listBox1.SelectedItem.Text, "Remove", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     listBox1.Items.Remove(listBox1.SelectedItem);
                 }

@@ -23,7 +23,7 @@ public partial class StudyScheduleMainForm : MaterialForm
     public int number_of_plans = 0;
     public int maxnumber_of_problems = 0;
 
-    string[] DataFilePath = { "./data/studyschedule1.json", "./data/studyschedule2.json", "./data/studyschedule3.json" };
+    string[] DataFilePath = { "./Data/Study-Schedule1.json", "./Data/Study-Schedule2.json", "./Data/Study-Schedule3.json" };
 
 
     public StudyScheduleMainForm()

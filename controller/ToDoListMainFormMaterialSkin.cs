@@ -1,4 +1,7 @@
 using MaterialSkin.Controls;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 
 namespace life_assistant.controller;
 
@@ -7,7 +10,7 @@ public partial class ToDoListMainFormMaterialSkin : MaterialForm
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     MaterialRadioButton[] things=new MaterialRadioButton[100];
     int ThingsCnt=0;
-    string DataFilePath = "./data/to-do-list-data.json";
+    string DataFilePath = "./Data/To-Do-List-Data.json";
     public ToDoListMainFormMaterialSkin()
     {
         InitializeComponent();
@@ -34,27 +37,28 @@ public partial class ToDoListMainFormMaterialSkin : MaterialForm
         }
         if(File.Exists(DataFilePath)) {
             StreamReader sr = new StreamReader(DataFilePath);
-
             string thing_name = sr.ReadLine();
-            while (thing_name != null)
+            sr.Close();
+
+            List<string> thingsL = JsonSerializer.Deserialize<List<string>>(thing_name);
+            foreach(string item in thingsL)
             {
-                things[ThingsCnt].Text = thing_name;
+                things[ThingsCnt].Text = item;
+                things[ThingsCnt].Visible = true;
                 things[ThingsCnt].Visible = true;
 
                 ThingsCnt++;
-                thing_name = sr.ReadLine();
             }
-            sr.Close();
+            Update();
         }
     }
 
     void UpdateData()
     {
+        List<string> thingsL= new List<string>();
+        for (int i = 0; i < ThingsCnt; i++) thingsL.Add(things[i].Text);
         StreamWriter sw = new StreamWriter(DataFilePath);
-        for (int i = 0; i < ThingsCnt; i++)
-        {
-            sw.WriteLine(things[i].Text);
-        }
+        sw.WriteLine(JsonSerializer.Serialize(thingsL));
         sw.Close();
     }
 
@@ -89,7 +93,7 @@ public partial class ToDoListMainFormMaterialSkin : MaterialForm
     {
         MaterialRadioButton RadBtn=(MaterialRadioButton)sender;
         if (RadBtn.Checked == false) return;
-        String target = RadBtn.Text;
+        string target = RadBtn.Text;
         int TargetIndex = 0;
         while (things[TargetIndex].Text != target) TargetIndex++;
         things[TargetIndex].Checked = false;
