@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using life_assistant.controller.spending_tracker;
+using life_assistant.controller.random_lunch_helper;
 using MaterialSkin.Controls;
 
 namespace life_assistant.controller;
