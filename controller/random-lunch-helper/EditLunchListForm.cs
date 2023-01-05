@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using life_assistant.controller;
@@ -16,6 +17,8 @@ public partial class EditLunchListForm : MaterialForm
 {
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     RandomLunchHelperMainForm randomLunchHelperMainForm;
+    string DataFilePath = "./Data/Random-Lunch-Helper.json";
+
     public EditLunchListForm(RandomLunchHelperMainForm father)
     {
         InitializeComponent();
@@ -29,16 +32,16 @@ public partial class EditLunchListForm : MaterialForm
 
     void Update()
     {
-        string DataFilePath = "./Data/RandomLunchHelper.json";
-        StreamWriter sw = new StreamWriter(DataFilePath);
-
         listBox1.Items.Clear();
         foreach (var item in randomLunchHelperMainForm.shop)
         {
             listBox1.Items.Add(new MaterialSkin.MaterialListBoxItem(item));
-            sw.WriteLine(item);
         }
+
+        StreamWriter sw = new StreamWriter(DataFilePath);
+        sw.WriteLine(JsonSerializer.Serialize(randomLunchHelperMainForm.shop));
         sw.Close();
+        
     }
     private void Form2_Load(object sender, EventArgs e)
     {

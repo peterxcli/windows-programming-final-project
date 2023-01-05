@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using life_assistant.controller.random_lunch_helper;
 using MaterialSkin.Controls;
+using System.Text.Json;
 
 namespace life_assistant.controller;
 
@@ -30,19 +31,15 @@ public partial class RandomLunchHelperMainForm : MaterialForm
 
         if (!File.Exists(DataFilePath))
         {
-            File.Create(DataFilePath);
+            File.Create(DataFilePath).Dispose();
+            return;
         }
-
+        
         StreamReader sr = new StreamReader(DataFilePath);
-
         string shop_name = sr.ReadLine();
-        while (shop_name != null)
-        {
-            shop.Add(shop_name);
-            shop_name = sr.ReadLine();
-        }
         sr.Close();
-
+        shop = JsonSerializer.Deserialize<List<string>>(shop_name);
+        
     }
     
 
