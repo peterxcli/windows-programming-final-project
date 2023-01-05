@@ -12,7 +12,7 @@ public partial class RandomLunchHelperMainForm : MaterialForm
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     public List<String> shop = new List<String>();
 
-    string DataFilePath = "./Data/RandomLunchHelper.json";
+    string DataFilePath = "./Data/Random-Lunch-Helper.json";
 
     public RandomLunchHelperMainForm()
     {
