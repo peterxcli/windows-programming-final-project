@@ -132,7 +132,8 @@ public partial class EditLunchListForm : MaterialForm
 
     private void materialButton2_Click(object sender, EventArgs e)
     {
-        randomLunchHelperMainForm.shop = randomLunchHelperMainForm.default_shop;
+        
+        randomLunchHelperMainForm.shop = new List<string>(randomLunchHelperMainForm.default_shop);
         Update();
     }
 }
