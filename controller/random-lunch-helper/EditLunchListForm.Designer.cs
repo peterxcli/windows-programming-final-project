@@ -33,6 +33,7 @@ partial class EditLunchListForm
             this.button2 = new MaterialSkin.Controls.MaterialButton();
             this.listBox1 = new MaterialSkin.Controls.MaterialListBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // textbar
@@ -130,11 +131,33 @@ partial class EditLunchListForm
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
+            // materialButton2
+            // 
+            this.materialButton2.AutoSize = false;
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton2.Depth = 0;
+            this.materialButton2.HighEmphasis = true;
+            this.materialButton2.Icon = null;
+            this.materialButton2.Location = new System.Drawing.Point(328, 325);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton2.Name = "materialButton2";
+            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton2.Size = new System.Drawing.Size(71, 28);
+            this.materialButton2.TabIndex = 5;
+            this.materialButton2.Text = "Default";
+            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton2.UseAccentColor = false;
+            this.materialButton2.UseVisualStyleBackColor = true;
+            this.materialButton2.Click += new System.EventHandler(this.materialButton2_Click);
+            // 
             // EditLunchListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 408);
+            this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
@@ -157,4 +180,5 @@ partial class EditLunchListForm
     private MaterialSkin.Controls.MaterialButton button2;
     private MaterialSkin.Controls.MaterialListBox listBox1;
     private MaterialSkin.Controls.MaterialButton materialButton1;
+    private MaterialSkin.Controls.MaterialButton materialButton2;
 }

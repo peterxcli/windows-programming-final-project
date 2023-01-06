@@ -37,11 +37,11 @@ public partial class EditLunchListForm : MaterialForm
         {
             listBox1.Items.Add(new MaterialSkin.MaterialListBoxItem(item));
         }
-        MessageBox.Show("Update");
         StreamWriter sw = new StreamWriter(DataFilePath);
         sw.WriteLine(JsonSerializer.Serialize(randomLunchHelperMainForm.shop));
         sw.Close();
-        
+        textbar.Focus();
+
     }
     private void Form2_Load(object sender, EventArgs e)
     {
@@ -54,7 +54,6 @@ public partial class EditLunchListForm : MaterialForm
         {
             button1.Focus();
             button1_Click(sender, e);
-            textbar.Focus();
         }
     }
 
@@ -64,16 +63,13 @@ public partial class EditLunchListForm : MaterialForm
         textbar.Text = "";
         if (target != "")
         {
-
             randomLunchHelperMainForm.shop.Add(target);
-            Update();
         }
         else
         {
             MessageBox.Show("Can't be empty!");
         }
-        // listBox1.TopIndex = listBox1.Items.Count - 1;
-        textbar.Focus();
+        Update();
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -122,7 +118,7 @@ public partial class EditLunchListForm : MaterialForm
 
         }
         Update();
-        textbar.Focus();
+        
     }
 
     private void materialButton1_Click(object sender, EventArgs e)
@@ -130,7 +126,13 @@ public partial class EditLunchListForm : MaterialForm
         if (MessageBox.Show("Do you want to delete all?", "Empty", MessageBoxButtons.YesNo) == DialogResult.Yes)
         {
             randomLunchHelperMainForm.shop.Clear();
-            Update();
         }
+        Update();
+    }
+
+    private void materialButton2_Click(object sender, EventArgs e)
+    {
+        randomLunchHelperMainForm.shop = randomLunchHelperMainForm.default_shop;
+        Update();
     }
 }

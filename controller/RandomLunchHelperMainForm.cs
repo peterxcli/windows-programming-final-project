@@ -54,6 +54,12 @@ public partial class RandomLunchHelperMainForm : MaterialForm
 
     private void button1_MouseUp(object sender, MouseEventArgs e)
     {
+        if (shop.Count() == 0)
+        {
+            MessageBox.Show("Please add Restaurant first!");
+            return;
+        }
+
         int cnt = 0;
         while (cnt++ < 50)
         {
