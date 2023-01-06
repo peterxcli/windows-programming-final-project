@@ -1,6 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.IO;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace life_assistant.model;
 
@@ -92,7 +94,20 @@ public class ExpenseManagerModel
     {
         return _categories.TryGetValue(id, out categoryName);
     }
-
+    public void SaveDataToMongoDB(ExpenseManagerModel model)
+    {
+        // Replace "mongodb://localhost" with the connection string for your MongoDB server
+        var mongoClient = new MongoClient("mongodb://localhost:27017");
+        var database = mongoClient.GetDatabase("expense_manager");
+        var collection = database.GetCollection<BsonDocument>("expenses");
+        string data = JsonSerializer.Serialize<ExpenseManagerModel>(this,
+            new JsonSerializerOptions { WriteIndented = true }
+            );
+        var filter = new BsonDocument();
+        collection.DeleteMany(filter);
+        BsonDocument document = BsonDocument.Parse(data);
+        collection.InsertOne(document);
+    }
     public void SaveData()
     {
         string data = JsonSerializer.Serialize<ExpenseManagerModel>(this,
@@ -105,6 +120,7 @@ public class ExpenseManagerModel
         StreamWriter sw = new StreamWriter(_workingDataFilePath);
         sw.Write(data);
         sw.Close();
+        SaveDataToMongoDB(this);
     }
 
     public void SaveDataTo(string path)
@@ -112,12 +128,23 @@ public class ExpenseManagerModel
         string data = JsonSerializer.Serialize<ExpenseManagerModel>(this,
             new JsonSerializerOptions { WriteIndented = true }
             );
-
         using StreamWriter sw = new(path);
         sw.Write(data);
         sw.Close();
     }
-
+    public ExpenseManagerSchema LoadDataFromMongoDB(MongoClient mongoClient)
+    {
+        // Replace "mongodb://localhost" with the connection string for your MongoDB server
+        // var mongoClient = new MongoClient("mongodb://localhost:27017");
+        var database = mongoClient.GetDatabase("expense_manager");
+        var collection = database.GetCollection<BsonDocument>("expenses");
+        var filter = new BsonDocument();
+        string _id = "_id";
+        var document = collection.Find(filter).FirstOrDefault();
+        document.Remove(_id);
+        ExpenseManagerSchema? ret = JsonSerializer.Deserialize<ExpenseManagerSchema>(document.ToJson());
+        return ret;
+    }
     public bool LoadData()
     {
         if (!File.Exists(_workingDataFilePath))

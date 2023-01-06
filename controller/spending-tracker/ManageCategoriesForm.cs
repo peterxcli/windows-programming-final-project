@@ -105,10 +105,11 @@ public partial class ManageCategoriesForm : MaterialForm
     }
     private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (DialogResult.Yes == MessageBox.Show($"Are you sure that you want to delete {listBoxCategories.SelectedItem}?",
+        if (listBoxCategories.SelectedItem == null) return; 
+        if (DialogResult.Yes == MessageBox.Show($"Are you sure that you want to delete {listBoxCategories.SelectedItem.Text}?",
             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
         {
-            expenseManagerModel.TryGetCategoryId(listBoxCategories.SelectedItem.ToString(), out Guid categoryId);
+            expenseManagerModel.TryGetCategoryId(listBoxCategories.SelectedItem.Text.ToString(), out Guid categoryId);
             expenseManagerModel.RemoveCategory(categoryId);
             PopulateListBoxCategories();
         }
