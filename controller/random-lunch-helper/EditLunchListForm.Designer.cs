@@ -32,6 +32,7 @@ partial class EditLunchListForm
             this.button1 = new MaterialSkin.Controls.MaterialButton();
             this.button2 = new MaterialSkin.Controls.MaterialButton();
             this.listBox1 = new MaterialSkin.Controls.MaterialListBox();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // textbar
@@ -42,7 +43,7 @@ partial class EditLunchListForm
             this.textbar.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textbar.LeadingIcon = null;
             this.textbar.Location = new System.Drawing.Point(29, 345);
-            this.textbar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textbar.Margin = new System.Windows.Forms.Padding(2);
             this.textbar.MaxLength = 50;
             this.textbar.MouseState = MaterialSkin.MouseState.OUT;
             this.textbar.Multiline = false;
@@ -100,7 +101,7 @@ partial class EditLunchListForm
             this.listBox1.Depth = 0;
             this.listBox1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBox1.Location = new System.Drawing.Point(29, 73);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.MouseState = MaterialSkin.MouseState.HOVER;
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectedIndex = -1;
@@ -108,16 +109,38 @@ partial class EditLunchListForm
             this.listBox1.Size = new System.Drawing.Size(425, 247);
             this.listBox1.TabIndex = 3;
             // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSize = false;
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(403, 325);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(51, 28);
+            this.materialButton1.TabIndex = 4;
+            this.materialButton1.Text = "Empty";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            // 
             // EditLunchListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 408);
+            this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textbar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditLunchListForm";
             this.Padding = new System.Windows.Forms.Padding(2, 32, 2, 2);
             this.Text = "Modify";
@@ -133,4 +156,5 @@ partial class EditLunchListForm
     private MaterialSkin.Controls.MaterialButton button1;
     private MaterialSkin.Controls.MaterialButton button2;
     private MaterialSkin.Controls.MaterialListBox listBox1;
+    private MaterialSkin.Controls.MaterialButton materialButton1;
 }

@@ -13,6 +13,8 @@ public partial class RandomLunchHelperMainForm : MaterialForm
     readonly MaterialSkin.MaterialSkinManager materialSkinManager;
     public List<String> shop = new List<String>();
 
+    public List<String> default_shop = new List<String>() { "McDonald's", "KFC", "一中刀削麵", "小帽屋", "肉肉控", "123炒飯", "億哥牛肉湯", "小蔡陽春麵", "台南開源社香雞排", "阿財牛肉湯", "飢丼_日式丼飯、炸物", "杉上鍋燒", "永吉牛肉湯", "菘芝香滷味", "覺丸拉麵", "牛伯麵店", "九湯屋拉麵", "小古巴 手作漢堡", "香香小吃", "胖媽媽炒飯", "皮嚓先生", "大醬川麵館", "添福麵館", "第二碗 鍋燒意麵", "一點刈包", "郭媽碳烤三明治", "七海魚皮", "繼光香香雞", "五鮮級鍋物專賣", "豚人拉麵", "後甲嘉義雞肉飯", };
+
     string DataFilePath = "./Data/Random-Lunch-Helper.json";
 
     public RandomLunchHelperMainForm()
@@ -38,8 +40,15 @@ public partial class RandomLunchHelperMainForm : MaterialForm
         StreamReader sr = new StreamReader(DataFilePath);
         string shop_name = sr.ReadLine();
         sr.Close();
-        shop = JsonSerializer.Deserialize<List<string>>(shop_name);
         
+        if (shop_name==null)
+        {
+            shop = default_shop;
+        }
+        else
+        {
+            shop = JsonSerializer.Deserialize<List<string>>(shop_name);
+        }
     }
     
 
